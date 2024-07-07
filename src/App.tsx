@@ -1,8 +1,12 @@
+import HeroSection from "./components/HeroSection"
+import Nav from "./components/Nav"
+
 function App() {
 
   return (
     <>
-    <h2 className="text-blue-500">Hello World</h2>
+    <Nav />
+    <HeroSection />
     </>
   )
 }
