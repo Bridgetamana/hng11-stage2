@@ -18,12 +18,12 @@ const ProductListing = () => {
 
                 </div>
 
-                <div className="lg:w-[20%] space-y-8">
+                <div className="lg:w-[20%] hidden lg:block space-y-8">
                 {/* Brand filter */}
                     <div>
                         <h2 className="text-lg">Brand</h2>
                         <hr className="w-36 bg-[#B5B5B5]" />
-                        <form>
+                        <form >
                             <label htmlFor="search" className=' sr-only'>Search</label>
                             <div className='rounded-[8px] bg-[#F5F5F5] flex items-center pl-4 py-2 w-52 mt-3'>
                                 <span className=' text-[#556177]'>
@@ -37,7 +37,7 @@ const ProductListing = () => {
                         </form>
 
                         {/* Checkbox */}
-                        <div className="space-y-6">
+                        <div className="space-y-6 mt-4">
                             <div className="flex items-center">
                                 <input id="filter-brand" name="color[]" value="apple" type="checkbox" className="h-4 w-4 rounded border-gray-300 focus:ring-black" />
                                 <label htmlFor="filter-brand" className="ml-3 min-w-0 flex-1 flex items-center font-semibold gap-1">Apple <p className="text-[#6C6C6C] text-sm">110</p></label>
@@ -115,6 +115,41 @@ const ProductListing = () => {
                     <div>
                         <ProductCard />
                     </div>
+                    <nav className="my-6 flex justify-center">
+                        <ul className="flex items-center space-x-2 h-8 text-sm">
+                            <li>
+                                <a href="#" className="flex items-center justify-center px-3 h-8 ms-0 text-blue-primary-60">
+                                    <span className="sr-only">Previous</span>
+                                    <svg className="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" className="flex items-center justify-center px-4 h-8 bg-blue-primary-60 text-white rounded-md">1</a>
+                            </li>
+                            <li>
+                                <a href="#" className="flex items-center justify-center px-3 h-8 text-blue-primary-60 bg-[#F6F6F6] rounded-md">2</a>
+                            </li>
+                            <li>
+                                <a href="#" aria-current="page" className="z-10 flex items-center justify-center px-3 h-8 text-blue-primary-60 bg-[#F6F6F6] rounded-md">3</a>
+                            </li>
+                            <li>
+                                <a href="#" className="flex items-center justify-center px-4 h-8 text-blue-primary-60 text-2xl">...</a>
+                            </li>
+                            <li>
+                                <a href="#" className="flex items-center justify-center px-3 h-8 text-blue-primary-60 bg-[#F6F6F6] rounded-md">12</a>
+                            </li>
+                            <li>
+                                <a href="#" className="flex items-center justify-center px-3 h-8 text-blue-primary-60">
+                                    <span className="sr-only">Next</span>
+                                    <svg className="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>

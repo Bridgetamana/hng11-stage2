@@ -1,5 +1,6 @@
 import { LuMenu, LuShoppingBag, LuHeart, LuSearch, LuUserCircle2 } from "react-icons/lu";
 import Logo from '../assets/img/Logo.png';
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   return (
@@ -16,10 +17,12 @@ const Nav = () => {
           <span className='text-xl'>
             <LuSearch />
           </span>
-          <span className='flex items-center gap-1 text-xl'>
-            <LuShoppingBag />
-            <p>1</p>
-          </span>
+          <Link to="/products">
+            <span className='flex items-center gap-1 text-xl '>
+              <LuShoppingBag />
+              <p>1</p>
+            </span>
+          </Link>
           <span className='flex items-center gap-1 text-xl'>
             <LuHeart />
             <p>3</p>
@@ -52,10 +55,12 @@ const Nav = () => {
             </div>
           </form>
           <span className='flex items-center gap-6'>
-            <span className='flex items-center gap-1 text-xl'>
-              <LuShoppingBag />
-              <p>1</p>
-            </span>
+            <Link to="/products">
+              <span className='flex items-center gap-1 text-xl '>
+                <LuShoppingBag />
+                <p>1</p>
+              </span>
+            </Link>
             <span className='flex items-center gap-1 text-xl'>
               <LuHeart />
               <p>3</p>
