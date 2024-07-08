@@ -10,14 +10,16 @@ const Nav = () => {
         <span className='text-2xl'>
           <LuMenu />
         </span>
-        <span className='pb-4 mr-3'>
-          <img src={Logo} alt="Gadgetry Logo" />
-        </span>
+        <Link to='/'>
+          <span className='pb-4 mr-3'>
+            <img src={Logo} alt="Gadgetry Logo" />
+          </span>
+        </Link>
         <span className='flex items-center gap-3'>
           <span className='text-xl'>
             <LuSearch />
           </span>
-          <Link to="/products">
+          <Link to="/cart">
             <span className='flex items-center gap-1 text-xl '>
               <LuShoppingBag />
               <p>1</p>
@@ -32,11 +34,15 @@ const Nav = () => {
 
       {/* Desktop view */}
       <div className=' items-center justify-between py-4 max-w-7xl mx-auto text-blue-primary-60 hidden lg:flex px-24'>
-        <div className='pb-4'>
-          <img src={Logo} alt="Gadgetry Logo" />
-        </div>
+        <Link to='/'>
+          <div className='pb-4'>
+            <img src={Logo} alt="Gadgetry Logo" />
+          </div>
+        </Link>
         <div className='text-[#33415C]/50 font-bold text-xl flex gap-4'>
-          <a href="#">Home</a>
+        <Link to="/"> 
+          <a>Home</a>
+        </Link>
           <a href="#">About</a>
           <a href="#">Blog</a>
           <a href="#">Contact</a>
@@ -55,7 +61,7 @@ const Nav = () => {
             </div>
           </form>
           <span className='flex items-center gap-6'>
-            <Link to="/products">
+            <Link to="/cart">
               <span className='flex items-center gap-1 text-xl '>
                 <LuShoppingBag />
                 <p>1</p>
