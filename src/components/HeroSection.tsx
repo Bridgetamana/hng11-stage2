@@ -84,7 +84,7 @@ const HeroSection = () => {
             {/* Vision Pro */}
             <div className='bg-[#192180] text-white pl-4 py-12 lg:col-span-1 lg:row-span-2 lg:col-start-5 lg:col-end-5'>
                 <div className='flex flex-row-reverse items-center relative'>
-                    <div className='w-32 absolute lg:w-64 top-32'>
+                    <div className='w-32 absolute lg:w-64 top-20 lg:top-32'>
                         <img src={Visionpro} alt="" className='w-full' />
                     </div>
                     <div className='mt-12'>
