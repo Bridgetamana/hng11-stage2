@@ -1,4 +1,3 @@
-import React from 'react';
 import WhiteLogo from "../assets/img/logo-white.png";
 import { LuFacebook, LuInstagram, LuTwitter } from "react-icons/lu";
 import { IoLogoTiktok } from "react-icons/io5";

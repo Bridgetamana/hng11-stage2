@@ -1,4 +1,3 @@
-import React from 'react';
 import { LuMenu, LuShoppingBag, LuHeart, LuSearch, LuUserCircle2 } from "react-icons/lu";
 import Logo from '../assets/img/Logo.png';
 

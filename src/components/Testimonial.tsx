@@ -1,4 +1,3 @@
-import React from 'react';
 import Avatar from "../assets/img/avatar.png";
 import { IoStar } from "react-icons/io5";
 

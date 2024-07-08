@@ -1,4 +1,3 @@
-import React from 'react';
 import Iwatch from "../assets/img/iwatch.png";
 import Airpods from "../assets/img/airpods.png";
 import Oraimo from "../assets/img/oraimo-airpods.png";

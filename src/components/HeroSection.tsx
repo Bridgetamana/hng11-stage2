@@ -1,4 +1,3 @@
-import React from 'react';
 import Samsung from "../assets/img/Galaxy-S24-Ultra.png";
 import Headphone from "../assets/img/Beats-Headphone-1.png";
 import Shopper from '../assets/img/shopper.png';
