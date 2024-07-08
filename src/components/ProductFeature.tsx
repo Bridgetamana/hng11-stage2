@@ -33,7 +33,7 @@ const ProductFeature = () => {
 
                 {/* Product 2 */}
                 <div className='p-4 bg-[#F9F9F9] mx-auto lg:flex-1 lg:max-w-none'>
-                    <div className='w-[360px] my-14 mx-auto'>
+                    <div className='lg:w-[360px] my-14 mx-auto'>
                         <img src={Oraimo} alt="" />
                     </div>
                     <div className="w-[90%] mx-auto">
@@ -47,7 +47,7 @@ const ProductFeature = () => {
 
                 {/* Product 3 */}
                 <div className='p-4 bg-[#EAEAEA] mx-auto lg:flex-1 lg:max-w-none'>
-                    <div className='w-[360px] mx-auto'>
+                    <div className='lg:w-[360px] mx-auto'>
                         <img src={SamsungFlip} alt="" />
                     </div>
                     <div className="w-[90%] mx-auto">
@@ -61,7 +61,7 @@ const ProductFeature = () => {
 
                 {/* Product 4 */}
                 <div className='p-4 bg-[#2A3E64] mx-auto lg:flex-1 lg:max-w-none'>
-                    <div className='w-[360px] my-14 mx-auto'>
+                    <div className='lg:w-[360px] my-14 mx-auto'>
                         <img src={Macbook2} alt="" />
                     </div>
                     <div className="w-[90%] mx-auto">
