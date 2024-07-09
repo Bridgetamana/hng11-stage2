@@ -108,7 +108,7 @@ const Cart = () => {
                                     placeholder='code' className='text-[#556177] w-full rounded-md border border-[#9F9F9F] outline-none py-2 pl-2' />
                             </div>
                         </div>
-                        <Link to='/checkout'>
+                        <Link to='/step1'>
                         
                         <button className="bg-blue-primary-60 text-white py-2.5 text-center w-full rounded-xl mt-6">Checkout</button>
                         </Link>

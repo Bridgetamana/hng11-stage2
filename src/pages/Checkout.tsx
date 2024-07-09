@@ -5,22 +5,22 @@ import { Link } from "react-router-dom";
 const Checkout = () => {
   return (
     <div className="px-4 py-6 md:px-24">
-      <div className="flex justify-between">
-        <div className="flex items-center gap-2 text-[#002855]">
+      <div className="flex justify-between text-[#99A0AD]">
+        <div className="md:flex items-center gap-2 hidden">
           <LuMapPin />
           <span>
             <p>Step 1</p>
             <p className="text-lg">Address</p>
           </span>
         </div>
-        <div className="flex items-center gap-2 text-[#99A0AD]">
+        <div className="flex items-center gap-2 ">
           <LuTruck />
           <span>
             <p>Step 2</p>
             <p className="text-lg">Shipping</p>
           </span>
         </div>
-        <div className="md:flex items-center hidden gap-2 text-[#99A0AD]">
+        <div className="items-center gap-2 text-[#002855]">
           <LuCreditCard />
           <span>
             <p>Step 3</p>

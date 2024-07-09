@@ -6,14 +6,14 @@ import { IoLogoTiktok } from "react-icons/io5";
 const Footer = () => {
     return (
         <footer className='bg-[#002855] text-[#CFCFCF] px-4 py-6 md:px-24'>
-            <div className='md:flex justify-between '>
-                <div className='space-y-6 w-[50%]'>
+            <div className='md:flex justify-between'>
+                <div className='space-y-6 w-[30%]'>
                     <div>
                         <img src={WhiteLogo} alt="" />
                     </div>
                     <p>We are Nigeria’s finest gadget hub, where comfort, quality and affordability meets world.</p>
                 </div>
-                <div className='flex items-start gap-4 md:gap-24 my-8'>
+                <div className='grid grid-cols-2 gap-12 my-8'>
                     <div>
                         <h4 className='text-white font-semibold'>Services</h4>
                         <ul className='space-y-3'>
