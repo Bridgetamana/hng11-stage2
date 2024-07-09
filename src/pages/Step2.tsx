@@ -1,5 +1,6 @@
 import { LuMapPin, LuTruck, LuCreditCard } from "react-icons/lu";
 import { Link } from "react-router-dom";
+import { FaChevronDown } from "react-icons/fa6";
 
 const Step2 = () => {
     return (
@@ -42,7 +43,7 @@ const Step2 = () => {
                             </div>
 
                             <div className="">
-                                <span className="flex justify-between items-center mb-4">
+                                <span className="flex justify-between gap-6 items-center mb-4">
                                     <p className="text-wrap">
                                         Regular Shipment
                                     </p>
@@ -70,14 +71,39 @@ const Step2 = () => {
                                     <p className="text-wrap">
                                         Regular Shipment
                                     </p>
-                                    <p className="text-[#17183B]">
+                                    <p className="">
                                         Free
                                     </p>
                                 </span>
 
-                                <span className="text-[#17183B]">
+                                <span className="">
                                     <p>17, Oct 2024</p>
 
+                                </span>
+                            </div>
+
+                        </div>
+
+                        <div className="border border-[#D1D1D8] p-5 flex gap-6 max-w-sm md:max-w-4xl rounded-lg">
+                            <div>
+                                <span className="flex justify-center p-1.5  rounded-full border border-blue-primary-60">
+                                    <span className="p-2 flex justify-center bg-white rounded-full"></span>
+                                </span>
+                            </div>
+
+                            <div className="md:flex flex-row-reverse justify-between items-start gap-24 lg:gap-72 text-[#99A0AD]">
+                                <span className="flex gap-6 items-center mb-4">
+                                    <p className="text-wrap">
+                                        Scheduled Shipment
+                                    </p>
+                                    <p className="">
+                                        Null
+                                    </p>
+                                </span>
+
+                                <span className="border border-[#99A0AD] py-2 px-3 flex items-center justify-between rounded-md">
+                                    <p>Select Date</p>
+                                    <FaChevronDown />
                                 </span>
                             </div>
 
@@ -112,7 +138,7 @@ const Step2 = () => {
                             <div className="flex gap-6 items-center">
                                 <div>
                                     <span className="flex justify-center p-1.5  rounded-full border border-blue-primary-60">
-                                        <span className="p-2 flex justify-center bg-blue-primary-60 rounded-full"></span>
+                                        <span className="p-2 flex justify-center bg-white rounded-full"></span>
                                     </span>
                                 </div>
                                 <p>Free</p>
@@ -126,14 +152,17 @@ const Step2 = () => {
                             <div className="flex gap-6 items-center">
                                 <div>
                                     <span className="flex justify-center p-1.5  rounded-full border border-blue-primary-60">
-                                        <span className="p-2 flex justify-center bg-blue-primary-60 rounded-full"></span>
+                                        <span className="p-2 flex justify-center bg-white rounded-full"></span>
                                     </span>
                                 </div>
-                                <p>Free</p>
-                                <p>Regular shipment</p>
+                                <p>Null</p>
+                                <p>Scheduled shipment</p>
                             </div>
                             <div>
-                                <p>17, Oct 2024</p>
+                                <span className="border border-[#99A0AD] py-2 px-3 flex items-center justify-between rounded-md">
+                                    <p>Select Date</p>
+                                    <FaChevronDown />
+                                </span>
                             </div>
                         </div>
 
