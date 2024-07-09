@@ -1,4 +1,5 @@
 import { LuMapPin, LuTruck, LuCreditCard } from "react-icons/lu";
+import { LuCheckCircle2 } from "react-icons/lu";
 import { Link } from "react-router-dom";
 
 const Checkout = () => {
@@ -29,8 +30,8 @@ const Checkout = () => {
       </div>
 
       <div className="my-10 max-w-sm md:max-w-lg mx-auto text-center">
-        <div>
-          <img src="" alt="" />
+        <div className="flex justify-center text-8xl my-4 text-[#192180B2]">
+          <LuCheckCircle2 />
         </div>
         <div>
           <h2 className="text-[#272727] text-2xl">Payment Confirmed</h2>

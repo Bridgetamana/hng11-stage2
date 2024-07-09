@@ -1,5 +1,4 @@
-import { LuMapPin, LuTruck, LuCreditCard, LuPlus } from "react-icons/lu";
-
+import { LuMapPin, LuTruck, LuCreditCard } from "react-icons/lu";
 import { Link } from "react-router-dom";
 
 const Step2 = () => {
@@ -21,7 +20,7 @@ const Step2 = () => {
                             <p className="text-lg">Shipping</p>
                         </span>
                     </div>
-                    <div className="md:flex items-center gap-2 hidden">
+                    <div className="flex items-center gap-2 ">
                         <LuCreditCard />
                         <span>
                             <p>Step 3</p>
@@ -42,8 +41,8 @@ const Step2 = () => {
                                 </span>
                             </div>
 
-                            <div className="md:flex flex-row-reverse justify-between items-start gap-24 lg:gap-72">
-                                <span className="flex gap-6 items-center mb-4">
+                            <div className="">
+                                <span className="flex justify-between items-center mb-4">
                                     <p className="text-wrap">
                                         Regular Shipment
                                     </p>
@@ -86,9 +85,9 @@ const Step2 = () => {
 
                     </div>
                     <div className="md:hidden flex justify-between max-w-sm mx-auto">
-                        <button className="border border-blue-primary-60 text-blue-primary-60 py-2.5 px-14 text-center rounded-md">Back</button>
+                        <button className="border border-blue-primary-60 text-blue-primary-60 py-2.5 px-10 text-center rounded-md">Back</button>
                         <Link to='/step3'>
-                            <button className="bg-blue-primary-60 text-white py-2.5 px-14 text-center rounded-md">Next</button>
+                            <button className="border border-blue-primary-60  bg-blue-primary-60 text-white py-2.5 px-10 text-center rounded-md">Next</button>
                         </Link>
                     </div>
 

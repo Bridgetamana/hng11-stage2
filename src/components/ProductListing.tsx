@@ -46,39 +46,39 @@ const ProductListing = () => {
                         {/* Checkbox */}
                         <div className="space-y-6 mt-4">
                             <div className="flex items-center">
-                                <input id="filter-brand" name="color[]" value="apple" type="checkbox" className="h-4 w-4 rounded border-gray-300 focus:ring-black" />
+                                <input id="filter-brand" name="color[]" value="apple" type="checkbox" className="h-4 w-4 rounded border-gray-300" />
                                 <label htmlFor="filter-brand" className="ml-3 min-w-0 flex-1 flex items-center font-semibold gap-1">Apple <p className="text-[#6C6C6C] text-sm">110</p></label>
                             </div>
                             <div className="flex items-center">
-                                <input id="filter-brand" name="color[]" value="apple" type="checkbox" className="h-4 w-4 rounded border-gray-300 focus:ring-black" />
+                                <input id="filter-brand" name="color[]" value="apple" type="checkbox" className="h-4 w-4 rounded border-gray-300" />
                                 <label htmlFor="filter-brand" className="ml-3 min-w-0 flex-1 flex items-center font-semibold gap-1">Samsung <p className="text-[#6C6C6C] text-sm">12</p></label>
                             </div>
                             <div className="flex items-center">
-                                <input id="filter-brand" name="color[]" value="apple" type="checkbox" className="h-4 w-4 rounded border-gray-300 focus:ring-black" />
+                                <input id="filter-brand" name="color[]" value="apple" type="checkbox" className="h-4 w-4 rounded border-gray-300" />
                                 <label htmlFor="filter-brand" className="ml-3 min-w-0 flex-1 flex items-center font-semibold gap-1">Xiaomi <p className="text-[#6C6C6C] text-sm">68</p></label>
                             </div>
                             <div className="flex items-center">
-                                <input id="filter-brand" name="color[]" value="apple" type="checkbox" className="h-4 w-4 rounded border-gray-300 focus:ring-black" />
+                                <input id="filter-brand" name="color[]" value="apple" type="checkbox" className="h-4 w-4 rounded border-gray-300" />
                                 <label htmlFor="filter-brand" className="ml-3 min-w-0 flex-1 flex items-center font-semibold gap-1">Poco <p className="text-[#6C6C6C] text-sm">44</p></label>
                             </div>
                             <div className="flex items-center">
-                                <input id="filter-brand" name="color[]" value="apple" type="checkbox" className="h-4 w-4 rounded border-gray-300 focus:ring-black" />
+                                <input id="filter-brand" name="color[]" value="apple" type="checkbox" className="h-4 w-4 rounded border-gray-300" />
                                 <label htmlFor="filter-brand" className="ml-3 min-w-0 flex-1 flex items-center font-semibold gap-1">OPPO <p className="text-[#6C6C6C] text-sm">36</p></label>
                             </div>
                             <div className="flex items-center">
-                                <input id="filter-brand" name="color[]" value="apple" type="checkbox" className="h-4 w-4 rounded border-gray-300 focus:ring-black" />
+                                <input id="filter-brand" name="color[]" value="apple" type="checkbox" className="h-4 w-4 rounded border-gray-300" />
                                 <label htmlFor="filter-brand" className="ml-3 min-w-0 flex-1 flex items-center font-semibold gap-1">Honor <p className="text-[#6C6C6C] text-sm">10</p></label>
                             </div>
                             <div className="flex items-center">
-                                <input id="filter-brand" name="color[]" value="apple" type="checkbox" className="h-4 w-4 rounded border-gray-300 focus:ring-black" />
+                                <input id="filter-brand" name="color[]" value="apple" type="checkbox" className="h-4 w-4 rounded border-gray-300" />
                                 <label htmlFor="filter-brand" className="ml-3 min-w-0 flex-1 flex items-center font-semibold gap-1">Motorola <p className="text-[#6C6C6C] text-sm">34</p></label>
                             </div>
                             <div className="flex items-center">
-                                <input id="filter-brand" name="color[]" value="apple" type="checkbox" className="h-4 w-4 rounded border-gray-300 focus:ring-black" />
+                                <input id="filter-brand" name="color[]" value="apple" type="checkbox" className="h-4 w-4 rounded border-gray-300" />
                                 <label htmlFor="filter-brand" className="ml-3 min-w-0 flex-1 flex items-center font-semibold gap-1">Nokia <p className="text-[#6C6C6C] text-sm">22</p></label>
                             </div>
                             <div className="flex items-center">
-                                <input id="filter-brand" name="color[]" value="apple" type="checkbox" className="h-4 w-4 rounded border-gray-300 focus:ring-black" />
+                                <input id="filter-brand" name="color[]" value="apple" type="checkbox" className="h-4 w-4 rounded border-gray-300" />
                                 <label htmlFor="filter-brand" className="ml-3 min-w-0 flex-1 flex items-center font-semibold gap-1">Realme <p className="text-[#6C6C6C] text-sm">35</p></label>
                             </div>
                         </div>
