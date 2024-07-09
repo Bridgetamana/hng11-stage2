@@ -6,9 +6,10 @@ import { FaChevronDown, FaChevronUp } from "react-icons/fa6";
 const ProductListing = () => {
     return (
         <div className="bg-white px-4 py-6 md:px-24">
-            <div className=" lg:flex items-start gap-10 ">
+            <div className=" lg:flex items-start gap-8 ">
                 <div className="flex gap-6 lg:hidden">
-                    <button className="border border-[#D4D4D4] font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center text-blue-primary-60 " type="button">Filter <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4 ms-8">
+                    <button className="border border-[#D4D4D4] font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center text-blue-primary-60 " type="button">Filter 
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4 ms-8">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />
                     </svg>
                     </button>
@@ -129,7 +130,7 @@ const ProductListing = () => {
                     </div>
                 </div>
 
-                <div className="lg:w-[70%]">
+                <div className="lg:w-[65%]">
                     <span className="flex items-center gap-1 my-6 lg:my-0 lg:mb-6">
                         <h3 className="text-[#6C6C6C]">Selected Products:</h3>
                         <p className="text-xl">146</p>

@@ -25,7 +25,7 @@ const ProductCard = () => {
     return (
         <div className='grid grid-cols-2 gap-y-6 gap-x-2 md:grid-cols-3 max-w-md mx-auto md:max-w-3xl lg:max-w-7xl'>
             {products.map((product) => (
-                <div className='bg-[#F6F6F6] rounded-md pb-4 pt-7 px-2 md:py-4 flex flex-col h-full' key={product.id}>
+                <div className='bg-[#F6F6F6] rounded-md pb-4 pt-7 px-2 md:py-4 flex flex-col h-full max-w-[260px]' key={product.id}>
                     <div className='w-24 h-24 mx-auto flex-shrink-0'>
                         <img src={product.image} alt={product.name} className='w-full' />
                     </div>

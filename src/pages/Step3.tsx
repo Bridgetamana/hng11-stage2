@@ -135,7 +135,9 @@ const Step3 = () => {
                     </div>
                 </div>
                     <div className="flex md:justify-end justify-center gap-8 mt-8">
+                        <Link to='/step2'>
                         <button className="border border-blue-primary-60 text-blue-primary-60 py-2.5 px-14 text-center rounded-md">Back</button>
+                        </Link>
                         <Link to='/checkout'>
                             <button className="bg-blue-primary-60 text-white py-2.5 px-14 text-center rounded-md">Pay</button>
                         </Link>
