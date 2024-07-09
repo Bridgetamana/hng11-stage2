@@ -7,13 +7,8 @@ const Nav = () => {
     <nav className=' bg-background'>
       {/* Mobile view */}
       <div className='flex items-center justify-between px-4 md:px-8 lg:hidden'>
-        <span className='text-2xl'>
-          <LuMenu />
-        </span>
-        <Link to='/'>
-          <span className='pb-4 mr-3'>
+        <Link to='/' className="pb-2">
             <img src={Logo} alt="Gadgetry Logo" />
-          </span>
         </Link>
         <span className='flex items-center gap-3'>
           <span className='text-xl'>
@@ -33,20 +28,12 @@ const Nav = () => {
       </div>
 
       {/* Desktop view */}
-      <div className=' items-center justify-between py-4 max-w-7xl mx-auto text-blue-primary-60 hidden lg:flex px-24'>
+      <div className=' items-center justify-between px-6 py-4 text-blue-primary-60 hidden lg:flex lg:px-28'>
         <Link to='/'>
           <div className='pb-4'>
             <img src={Logo} alt="Gadgetry Logo" />
           </div>
         </Link>
-        <div className='text-[#33415C]/50 font-bold text-xl flex gap-4'>
-        <Link to="/"> 
-          <a>Home</a>
-        </Link>
-          <a href="#">About</a>
-          <a href="#">Blog</a>
-          <a href="#">Contact</a>
-        </div>
         <div className='flex items-center gap-8'>
           <form>
             <label htmlFor="search" className=' sr-only'>Search</label>
@@ -67,10 +54,6 @@ const Nav = () => {
                 <p>1</p>
               </span>
             </Link>
-            <span className='flex items-center gap-1 text-xl'>
-              <LuHeart />
-              <p>3</p>
-            </span>
             <span className='flex items-center  text-xl'>
               <LuUserCircle2 />
             </span>
