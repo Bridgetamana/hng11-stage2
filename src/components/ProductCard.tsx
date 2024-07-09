@@ -23,26 +23,25 @@ const ProductCard = () => {
     ];
 
     return (
-        <div className='grid grid-cols-2 gap-y-6 gap-x-2 md:grid-cols-3 max-w-md mx-auto md:max-w-2xl lg:max-w-7xl lg:gap-8'>
+        <div className='grid grid-cols-2 gap-y-6 gap-x-2 md:grid-cols-3 max-w-md mx-auto md:max-w-3xl lg:max-w-7xl'>
             {products.map((product) => (
-
-            <div className='bg-[#F6F6F6] rounded-md py-4 px-2 max-w-52 ' key={product.id}>
-
-                <div className='w-24 h-24 mx-auto'>
-                    <img src={product.image} alt={product.name} className='w-full'/>
+                <div className='bg-[#F6F6F6] rounded-md pb-4 pt-7 px-2 md:py-4 flex flex-col h-full' key={product.id}>
+                    <div className='w-24 h-24 mx-auto flex-shrink-0'>
+                        <img src={product.image} alt={product.name} className='w-full' />
+                    </div>
+                    <div className='py-4 text-center flex-grow'>
+                        <p className="">{product.name}</p>
+                        <p className='text-2xl font-semibold my-2'>{product.price}</p>
+                    </div>
+                    <div className='flex justify-center gap-6 items-center mt-auto'>
+                        <button className='bg-blue-primary-60 rounded-lg py-2.5 px-4 md:px-10 text-white text-sm'>
+                            Add to Cart
+                        </button>
+                    </div>
                 </div>
-                <div className='py-4 text-center'>
-                    <p className="">{product.name}</p>
-                    <p className='text-2xl font-semibold my-2'>{product.price}</p>
-                </div>
-                <div className='flex justify-center gap-6 items-center'>
-                    <button className='bg-blue-primary-60 rounded-lg py-2.5 px-4 text-white text-sm'>
-                        Add to Cart
-                    </button>
-                </div>
-            </div>
-            )) }
+            ))}
         </div>
     );
 };
- export default ProductCard;
+
+export default ProductCard;
