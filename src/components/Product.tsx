@@ -12,7 +12,7 @@ const Product = () => {
                 </span>
 
                 {/* Product grid */}
-                <div > 
+                <div> 
                     <ProductCard />
                 </div>
             </div>
