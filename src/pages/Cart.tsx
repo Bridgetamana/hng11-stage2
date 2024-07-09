@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
-import Oraimo from '../assets/img/oraimo-airpods.png'
+import Oraimo from '../assets/img/oraimo-airpods.png';
+import Samsung from '../assets/img/samsung-flip.png';
+import Wristband from '../assets/img/apple-wristband.png';
 
 const Cart = () => {
     return (
-        <div className="px-4 py-6">
+        <div className="px-4 py-6 md:px-24">
             <div className="md:text-center flex flex-col md:flex-col-reverse gap-y-6 md:mt-20 ">
                 <Link to='/'>
                     <a className="text-[#001845] border-b-2 border-[#001845] ml-3">
@@ -23,10 +25,10 @@ const Cart = () => {
 
                 <div className="flex items-center justify-between border-y border-[#E5E5E5] py-4">
                     <div className="flex justify-between items-center gap-4 lg:gap-8 ">
-                        <div className="bg-[#F7F8FA]">
-                            <img src={Oraimo} className="w-36" alt="" />
+                        <div className="bg-[#F7F8FA] w-36 flex-shrink-0">
+                            <img src={Oraimo} className="w-full" alt="" />
                         </div>
-                        <span>
+                        <span className="flex-grow">
                             <h3 className="text-xl text-wrap">Oraimo Freepods</h3>
                             <button className="text-[#001845] border-b-2 border-[#001845]">Remove</button>
                         </span>
@@ -45,10 +47,10 @@ const Cart = () => {
 
                 <div className="flex items-center justify-between border-b border-[#E5E5E5] py-4">
                     <div className="flex justify-between items-center gap-4 lg:gap-8 ">
-                        <div className="bg-[#F7F8FA]">
-                            <img src={Oraimo} className="w-36" alt="" />
+                        <div className="bg-[#F7F8FA] w-36 flex-shrink-0">
+                            <img src={Samsung} className="w-full" alt="" />
                         </div>
-                        <span>
+                        <span className="flex-grow">
                             <h3 className="text-xl text-wrap">Samsung Galaxy Z Flip Ultra Max</h3>
                             <button className="text-[#001845] border-b-2 border-[#001845]">Remove</button>
                         </span>
@@ -71,7 +73,7 @@ const Cart = () => {
                 <div className="flex items-center justify-between border-b border-[#E5E5E5] py-4">
                     <div className="flex justify-between items-center gap-4 lg:gap-8 ">
                         <div className="bg-[#F7F8FA]">
-                            <img src={Oraimo} className="w-36" alt="" />
+                            <img src={Wristband} className="w-36" alt="" />
                         </div>
                         <span>
                             <h3 className="text-xl text-wrap">Apple Arm Band</h3>
@@ -154,7 +156,7 @@ const Cart = () => {
                 <div className=" justify-between items-center border-y border-[#E5E5E5] py-3 grid grid-cols-2">
                     <div className="flex  items-center gap-4 lg:gap-8">
                         <div className="bg-[#F7F8FA]">
-                            <img src={Oraimo} className="w-36" alt="" />
+                            <img src={Samsung} className="w-36" alt="" />
                         </div>
                         <span>
                             <h3 className="text-xl text-wrap">Samsung Galaxy Z Flip Ultra Max</h3>
@@ -179,7 +181,7 @@ const Cart = () => {
                 <div className=" justify-between items-center border-y border-[#E5E5E5] py-3 grid grid-cols-2">
                     <div className="flex  items-center gap-4 lg:gap-8">
                         <div className="bg-[#F7F8FA]">
-                            <img src={Oraimo} className="w-36" alt="" />
+                            <img src={Wristband} className="w-36" alt="" />
                         </div>
                         <span>
                             <h3 className="text-xl text-wrap">Apple Arm Band</h3>
@@ -215,7 +217,7 @@ const Cart = () => {
                         <h2 className="text-xl">Sub-total  #1,638,000</h2>
                         <p className="text-[#9E9E9E]">Tax and shipping cost will be calculated later</p>
                     </div>
-                    <Link to='/checkout'>
+                    <Link to='/step1'>
                         <button className="bg-blue-primary-60 text-white py-4 md:px-8  lg:px-14 text-center w-full rounded-xl mt-6">Checkout</button>
                     </Link>
                 </div>

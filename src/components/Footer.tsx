@@ -5,8 +5,8 @@ import { IoLogoTiktok } from "react-icons/io5";
 
 const Footer = () => {
     return (
-        <footer className='bg-[#002855] text-[#CFCFCF] px-4 py-6'>
-            <div className='md:flex justify-between max-w-7xl mx-auto'>
+        <footer className='bg-[#002855] text-[#CFCFCF] px-4 py-6 md:px-24'>
+            <div className='md:flex justify-between '>
                 <div className='space-y-6 w-[50%]'>
                     <div>
                         <img src={WhiteLogo} alt="" />
@@ -37,7 +37,7 @@ const Footer = () => {
 
                 </div>
             </div>
-            <div className='flex gap-4 max-w-7xl mx-auto'>
+            <div className='flex gap-4'>
                 <LuTwitter />
                 <LuFacebook />
                 <IoLogoTiktok />

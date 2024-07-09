@@ -1,16 +1,18 @@
 import ProductCard from "./ProductCard";
 import { LuSearch } from "react-icons/lu";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa6";
+
 
 const ProductListing = () => {
     return (
-        <div className="bg-white">
-            <div className="px-4 py-6 lg:flex items-start gap-8 w-full max-w-7xl mx-auto">
+        <div className="bg-white px-4 py-6 md:px-24">
+            <div className=" lg:flex items-start gap-8 ">
                 <div className="flex gap-6 lg:hidden">
-                    <button id="dropdownDelayButton" data-dropdown-toggle="dropdownDelay" data-dropdown-delay="500" data-dropdown-trigger="hover" className="border border-[#D4D4D4] font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center text-blue-primary-60 " type="button">Filter <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4 ms-8">
+                    <button className="border border-[#D4D4D4] font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center text-blue-primary-60 " type="button">Filter <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4 ms-8">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />
                     </svg>
                     </button>
-                    <button id="dropdownDelayButton" data-dropdown-toggle="dropdownDelay" data-dropdown-delay="500" data-dropdown-trigger="hover" className="border border-[#D4D4D4] font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center text-blue-primary-60" type="button">By Rating <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4 ms-3">
+                    <button className="border border-[#D4D4D4] font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center text-blue-primary-60" type="button">By Rating <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4 ms-3">
                         <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                     </svg>
                     </button>
@@ -19,10 +21,15 @@ const ProductListing = () => {
                 </div>
 
                 <div className="lg:w-[20%] hidden lg:block space-y-8">
-                {/* Brand filter */}
+                    {/* Brand filter */}
                     <div>
-                        <h2 className="text-lg">Brand</h2>
-                        <hr className="w-36 bg-[#B5B5B5]" />
+                        <div>
+                            <div className="flex justify-between items-center">
+                                <h2 className="text-lg">Brand</h2>
+                                <FaChevronUp />
+                            </div>
+                            <hr className="bg-[#B5B5B5]" />
+                        </div>
                         <form >
                             <label htmlFor="search" className=' sr-only'>Search</label>
                             <div className='rounded-[8px] bg-[#F5F5F5] flex items-center pl-4 py-2 w-52 mt-3'>
@@ -78,32 +85,47 @@ const ProductListing = () => {
                     </div>
                     {/* Battery Capacity */}
                     <div>
-                        <h2 className="text-lg">Battery Capacity</h2>
-                        <hr className="w-36 bg-[#B5B5B5]" />
+                        <div className="flex justify-between items-center">
+                            <h2 className="text-lg">Battery Capacity</h2>
+                            <FaChevronDown/>
+                        </div>
+                        <hr className="bg-[#B5B5B5]" />
                     </div>
 
                     {/* Screen type */}
                     <div>
-                        <h2 className="text-lg">Screen type</h2>
-                        <hr className="w-36 bg-[#B5B5B5]" />
+                        <div className="flex justify-between items-center">
+                            <h2 className="text-lg">Screen type</h2>
+                            <FaChevronDown />
+                        </div>
+                        <hr className="bg-[#B5B5B5]" />
                     </div>
 
                     {/* Screen diagonal */}
                     <div>
-                        <h2 className="text-lg">Screen diagonal</h2>
-                        <hr className="w-36 bg-[#B5B5B5]" />
+                        <div className="flex justify-between items-center">
+                            <h2 className="text-lg">Screen diagonal</h2>
+                            <FaChevronDown />
+                        </div>
+                        <hr className="bg-[#B5B5B5]" />
                     </div>
 
                     {/* Protection class */}
                     <div>
-                        <h2 className="text-lg">Protection class</h2>
-                        <hr className="w-36 bg-[#B5B5B5]" />
+                        <div className="flex justify-between items-center">
+                            <h2 className="text-lg">Protection class</h2>
+                            <FaChevronDown />
+                        </div>
+                        <hr className="bg-[#B5B5B5]" />
                     </div>
 
                     {/* Built-in memory */}
                     <div>
-                        <h2 className="text-lg">Built-in memory</h2>
-                        <hr className="w-36 bg-[#B5B5B5]" />
+                        <div className="flex justify-between items-center">
+                            <h2 className="text-lg"> Built-in memory</h2>
+                            <FaChevronDown />
+                        </div>
+                        <hr className="bg-[#B5B5B5]" />
                     </div>
                 </div>
 
