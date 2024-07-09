@@ -1,4 +1,4 @@
-import { LuMenu, LuShoppingBag, LuHeart, LuSearch, LuUserCircle2 } from "react-icons/lu";
+import { LuShoppingBag, LuSearch, LuUserCircle2 } from "react-icons/lu";
 import Logo from '../assets/img/Logo.png';
 import { Link } from "react-router-dom";
 
@@ -20,10 +20,6 @@ const Nav = () => {
               <p>1</p>
             </span>
           </Link>
-          <span className='flex items-center gap-1 text-xl'>
-            <LuHeart />
-            <p>3</p>
-          </span>
         </span>
       </div>
 

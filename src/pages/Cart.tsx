@@ -106,7 +106,10 @@ const Cart = () => {
                                     placeholder='code' className='text-[#556177] w-full rounded-md border border-[#9F9F9F] outline-none py-2 pl-2' />
                             </div>
                         </div>
+                        <Link to='/checkout'>
+                        
                         <button className="bg-blue-primary-60 text-white py-2.5 text-center w-full rounded-xl mt-6">Checkout</button>
+                        </Link>
                     </form>
                 </div>
             </div>
@@ -212,9 +215,9 @@ const Cart = () => {
                         <h2 className="text-xl">Sub-total  #1,638,000</h2>
                         <p className="text-[#9E9E9E]">Tax and shipping cost will be calculated later</p>
                     </div>
-                    <div>
+                    <Link to='/checkout'>
                         <button className="bg-blue-primary-60 text-white py-4 md:px-8  lg:px-14 text-center w-full rounded-xl mt-6">Checkout</button>
-                    </div>
+                    </Link>
                 </div>
             </div>
         </div>
