@@ -10,10 +10,10 @@ const Step1 = () => {
     <div className="">
         <div className="flex justify-between">
           <div className="hidden md:flex">
-            <CheckoutSteps icon={LuMapPin} stepNumber={1} stepName="Address" />
+            <CheckoutSteps icon={LuMapPin} stepNumber={1} stepName="Address" isActive />
           </div>
           <CheckoutSteps icon={LuTruck} stepNumber={2} stepName="Shipping" />
-          <CheckoutSteps icon={LuCreditCard} stepNumber={3} stepName="Payment" isActive />
+          <CheckoutSteps icon={LuCreditCard} stepNumber={3} stepName="Payment"/>
         </div>
         <div className="my-10 mx-auto">
           <h3 className="text-xl text-[#17183B] mb-4">Select Address</h3>

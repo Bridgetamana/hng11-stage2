@@ -12,8 +12,8 @@ const Step2 = () => {
                     <div className="hidden md:flex">
                         <CheckoutSteps icon={LuMapPin} stepNumber={1} stepName="Address" />
                     </div>
-                    <CheckoutSteps icon={LuTruck} stepNumber={2} stepName="Shipping" />
-                    <CheckoutSteps icon={LuCreditCard} stepNumber={3} stepName="Payment" isActive />
+                    <CheckoutSteps icon={LuTruck} stepNumber={2} stepName="Shipping" isActive />
+                    <CheckoutSteps icon={LuCreditCard} stepNumber={3} stepName="Payment" />
                 </div>
                 <div className="my-10 mx-auto">
                     <h3 className="text-xl text-[#17183B] mb-4">Shipping payment Address</h3>

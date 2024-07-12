@@ -18,7 +18,7 @@ const Step3 = () => {
                     <CheckoutSteps icon={LuCreditCard} stepNumber={3} stepName="Payment" isActive />
                 </div>
 
-                <div className="md:flex gap-12 items-start md:max-w-4xl mx-auto">
+                <div className="md:flex gap-12 items-start md:max-w-4xl mx-auto md:mt-16">
                     <div>
                         <div className="md:border border-[#EBEBEB] rounded-md p-4">
                             <h2 className="text-xl mb-6">Summary</h2>
