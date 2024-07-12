@@ -24,9 +24,9 @@ const Cart = () => {
                     <p>Price</p>
                 </span>
 
-                <CartItem imgSrc={Oraimo} name="Oraimo Freepods" price="#30000"/>
-                <CartItem imgSrc={Samsung} name="Samsung Galaxy Z Flip Ultra Max" price="#1,368,000"/>
-                <CartItem imgSrc={Wristband} name="Apple Arm Band" price="#240,000"/>
+                <CartItem imgSrc={Oraimo} name="Oraimo Freepods" price={30000} />
+                <CartItem imgSrc={Samsung} name="Samsung Galaxy Z Flip Ultra Max" price={1368000} />
+                <CartItem imgSrc={Wristband} name="Apple Arm Band" price={240000}/>
                 {/* checkout form */}
                 <div className="text-center my-8">
                     <h2 className="text-xl">Sub-total  #1,638,000</h2>
@@ -44,8 +44,8 @@ const Cart = () => {
                             </div>
                         </div>
                         <Link to='/step1'>
-                        
-                        <button className="bg-blue-primary-60 text-white py-2.5 text-center w-full rounded-xl mt-6">Checkout</button>
+
+                            <button className="bg-blue-primary-60 text-white py-2.5 text-center w-full rounded-xl mt-6">Checkout</button>
                         </Link>
                     </form>
                 </div>
@@ -63,11 +63,11 @@ const Cart = () => {
                     </div>
                 </div>
 
-                <CartItem imgSrc={Oraimo} name="Oraimo Freepods" price="#30000" total="#1,240,000"/>
-                <CartItem imgSrc={Samsung} name="Samsung Galaxy Z Flip Ultra Max" price="#1,368,000" total="#1,368,000"/>
-                <CartItem imgSrc={Wristband} name="Apple Arm Band" price="#240,000" total="#240,000"/>
-               
-                
+                <CartItem imgSrc={Oraimo} name="Oraimo Freepods" price={30000} total={1240000} />
+                <CartItem imgSrc={Samsung} name="Samsung Galaxy Z Flip Ultra Max" price={1368000} total={1368000} />
+                <CartItem imgSrc={Wristband} name="Apple Arm Band" price={240000} total={240000} />
+
+
                 {/* Checkout from */}
 
                 <div className="flex justify-between items-center my-12">

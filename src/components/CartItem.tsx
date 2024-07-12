@@ -1,5 +1,5 @@
 
-const CartItem = ({ imgSrc, name, price, total }: { imgSrc: string, name: string, price: number, total: number }) => (
+const CartItem = ({ imgSrc, name, price, total }: { imgSrc: string, name: string, price: number, total?: number }) => (
     <div>
         {/* mobile cart */}
         <div className="flex  md:hidden items-center justify-between border-y border-[#E5E5E5] py-4">
@@ -14,7 +14,7 @@ const CartItem = ({ imgSrc, name, price, total }: { imgSrc: string, name: string
             </div>
             <span className="">
                 <span>
-                    <p>{price}</p>
+                    <p>#{price}</p>
                 </span>
                 <button className="text-[#001845] flex gap-1 items-center border border-blue-primary-60 px-2">
                     <p className="text-xl">+</p>
@@ -37,7 +37,7 @@ const CartItem = ({ imgSrc, name, price, total }: { imgSrc: string, name: string
             </div>
             <div className="flex justify-between items-center">
                 <span>
-                    <p>{price}</p>
+                    <p>#{price}</p>
                 </span>
                 <div>
                     <button className="text-[#001845] flex gap-1 items-center border border-blue-primary-60 px-2 ml-">
@@ -46,7 +46,7 @@ const CartItem = ({ imgSrc, name, price, total }: { imgSrc: string, name: string
                         <p className="text-xl">-</p>
                     </button>
                 </div>
-                <span className="">{total}</span>
+                <span className="">#{total}</span>
             </div>
         </div>
     </div>
