@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Oraimo from '../assets/img/oraimo-airpods.png';
 import Samsung from '../assets/img/samsung-flip.png';
 import Wristband from '../assets/img/apple-wristband.png';
+import CartItem from "../components/CartItem";
 
 const Cart = () => {
     return (
@@ -23,75 +24,9 @@ const Cart = () => {
                     <p>Price</p>
                 </span>
 
-                <div className="flex items-center justify-between border-y border-[#E5E5E5] py-4">
-                    <div className="flex justify-between items-center gap-4 lg:gap-8 ">
-                        <div className="bg-[#F7F8FA] w-36 flex-shrink-0">
-                            <img src={Oraimo} className="w-full" alt="" />
-                        </div>
-                        <span className="flex-grow">
-                            <h3 className="text-xl text-wrap">Oraimo Freepods</h3>
-                            <button className="text-[#001845] border-b-2 border-[#001845]">Remove</button>
-                        </span>
-                    </div>
-                    <span className="">
-                        <span>
-                            <p>#30000</p>
-                        </span>
-                        <button className="text-[#001845] flex gap-1 items-center border border-blue-primary-60 px-2 ml-">
-                            <p className="text-xl">+</p>
-                            <p >1</p>
-                            <p className="text-xl">-</p>
-                        </button>
-                    </span>
-                </div>
-
-                <div className="flex items-center justify-between border-b border-[#E5E5E5] py-4">
-                    <div className="flex justify-between items-center gap-4 lg:gap-8 ">
-                        <div className="bg-[#F7F8FA] w-36 flex-shrink-0">
-                            <img src={Samsung} className="w-full" alt="" />
-                        </div>
-                        <span className="flex-grow">
-                            <h3 className="text-xl text-wrap">Samsung Galaxy Z Flip Ultra Max</h3>
-                            <button className="text-[#001845] border-b-2 border-[#001845]">Remove</button>
-                        </span>
-                    </div>
-                    <span className="">
-                        <span>
-                            <p className="text-wrap">#1,368,000</p>
-                        </span>
-                        <button className="text-[#001845] flex gap-1 items-center border border-blue-primary-60 px-2 ml-">
-                            <p className="text-xl">+</p>
-                            <p >1</p>
-                            <p className="text-xl">-</p>
-                        </button>
-                    </span>
-
-
-                </div>
-
-
-                <div className="flex items-center justify-between border-b border-[#E5E5E5] py-4">
-                    <div className="flex justify-between items-center gap-4 lg:gap-8 ">
-                        <div className="bg-[#F7F8FA]">
-                            <img src={Wristband} className="w-36" alt="" />
-                        </div>
-                        <span>
-                            <h3 className="text-xl text-wrap">Apple Arm Band</h3>
-                            <button className="text-[#001845] border-b-2 border-[#001845]">Remove</button>
-                        </span>
-                    </div>
-                    <span className="">
-                        <span>
-                            <p className="text-wrap">#240,000</p>
-                        </span>
-                        <button className="text-[#001845] flex gap-1 items-center border border-blue-primary-60 px-2 ml-">
-                            <p className="text-xl">+</p>
-                            <p >1</p>
-                            <p className="text-xl">-</p>
-                        </button>
-                    </span>
-                </div>
-
+                <CartItem imgSrc={Oraimo} name="Oraimo Freepods" price="#30000"/>
+                <CartItem imgSrc={Samsung} name="Samsung Galaxy Z Flip Ultra Max" price="#1,368,000"/>
+                <CartItem imgSrc={Wristband} name="Apple Arm Band" price="#240,000"/>
                 {/* checkout form */}
                 <div className="text-center my-8">
                     <h2 className="text-xl">Sub-total  #1,638,000</h2>
@@ -128,80 +63,10 @@ const Cart = () => {
                     </div>
                 </div>
 
-                <div className=" justify-between items-center border-y border-[#E5E5E5] py-3 grid grid-cols-2">
-                    <div className="flex  items-center gap-4 lg:gap-8">
-                        <div className="bg-[#F7F8FA]">
-                            <img src={Oraimo} className="w-36" alt="" />
-                        </div>
-                        <span>
-                            <h3 className="text-xl text-wrap">Oraimo Freepods</h3>
-                            <button className="text-[#001845] border-b-2 border-[#001845]">Remove</button>
-                        </span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                        <span>
-                            <p>#30000</p>
-                        </span>
-                        <div>
-                            <button className="text-[#001845] flex gap-1 items-center border border-blue-primary-60 px-2 ml-">
-                                <p className="text-xl">+</p>
-                                <p >1</p>
-                                <p className="text-xl">-</p>
-                            </button>
-                        </div>
-                        <span className="">#1,240,000</span>
-                    </div>
-                </div>
-
-                <div className=" justify-between items-center border-y border-[#E5E5E5] py-3 grid grid-cols-2">
-                    <div className="flex  items-center gap-4 lg:gap-8">
-                        <div className="bg-[#F7F8FA]">
-                            <img src={Samsung} className="w-36" alt="" />
-                        </div>
-                        <span>
-                            <h3 className="text-xl text-wrap">Samsung Galaxy Z Flip Ultra Max</h3>
-                            <button className="text-[#001845] border-b-2 border-[#001845]">Remove</button>
-                        </span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                        <span>
-                            <p>#1,368,000</p>
-                        </span>
-                        <div>
-                            <button className="text-[#001845] flex gap-1 items-center border border-blue-primary-60 px-2 ml-">
-                                <p className="text-xl">+</p>
-                                <p >1</p>
-                                <p className="text-xl">-</p>
-                            </button>
-                        </div>
-                        <span className="">#1,368,000</span>
-                    </div>
-                </div>
-
-                <div className=" justify-between items-center border-y border-[#E5E5E5] py-3 grid grid-cols-2">
-                    <div className="flex  items-center gap-4 lg:gap-8">
-                        <div className="bg-[#F7F8FA]">
-                            <img src={Wristband} className="w-36" alt="" />
-                        </div>
-                        <span>
-                            <h3 className="text-xl text-wrap">Apple Arm Band</h3>
-                            <button className="text-[#001845] border-b-2 border-[#001845]">Remove</button>
-                        </span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                        <span>
-                            <p>#240,000</p>
-                        </span>
-                        <div>
-                            <button className="text-[#001845] flex gap-1 items-center border border-blue-primary-60 px-2 ml-">
-                                <p className="text-xl">+</p>
-                                <p >1</p>
-                                <p className="text-xl">-</p>
-                            </button>
-                        </div>
-                        <span className="">#240,000</span>
-                    </div>
-                </div>
+                <CartItem imgSrc={Oraimo} name="Oraimo Freepods" price="#30000" total="#1,240,000"/>
+                <CartItem imgSrc={Samsung} name="Samsung Galaxy Z Flip Ultra Max" price="#1,368,000" total="#1,368,000"/>
+                <CartItem imgSrc={Wristband} name="Apple Arm Band" price="#240,000" total="#240,000"/>
+               
                 
                 {/* Checkout from */}
 
