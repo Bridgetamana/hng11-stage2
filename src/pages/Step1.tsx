@@ -1,33 +1,19 @@
 import { LuMapPin, LuTruck, LuCreditCard, LuPlus } from "react-icons/lu";
 import { MdEdit, MdClose } from "react-icons/md";
 import { Link } from "react-router-dom";
+import CheckoutSteps from "../components/CheckoutSteps";
+
 
 const Step1 = () => {
   return (
       <div className="px-4 py-6 md:px-24">
     <div className="">
         <div className="flex justify-between">
-          <div className="flex items-center gap-2 text-[#002855]">
-            <LuMapPin />
-            <span>
-              <p>Step 1</p>
-              <p className="text-lg">Address</p>
-            </span>
+          <div className="hidden md:flex">
+            <CheckoutSteps icon={LuMapPin} stepNumber={1} stepName="Address" />
           </div>
-          <div className="flex items-center gap-2 text-[#99A0AD]">
-            <LuTruck />
-            <span>
-              <p>Step 2</p>
-              <p className="text-lg">Shipping</p>
-            </span>
-          </div>
-          <div className="md:flex items-center gap-2 text-[#99A0AD] hidden">
-            <LuCreditCard />
-            <span>
-              <p>Step 3</p>
-              <p className="text-lg">Payment</p>
-            </span>
-          </div>
+          <CheckoutSteps icon={LuTruck} stepNumber={2} stepName="Shipping" />
+          <CheckoutSteps icon={LuCreditCard} stepNumber={3} stepName="Payment" isActive />
         </div>
         <div className="my-10 mx-auto">
           <h3 className="text-xl text-[#17183B] mb-4">Select Address</h3>

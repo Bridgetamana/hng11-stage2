@@ -1,5 +1,5 @@
 
-const CartItem = ({ imgSrc, name, price, total }: { imgSrc: string, name: string, price: string, total?: string }) => (
+const CartItem = ({ imgSrc, name, price, total }: { imgSrc: string, name: string, price: number, total: number }) => (
     <div>
         {/* mobile cart */}
         <div className="flex  md:hidden items-center justify-between border-y border-[#E5E5E5] py-4">

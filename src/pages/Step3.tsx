@@ -3,34 +3,19 @@ import { Link } from "react-router-dom";
 import Oraimo from '../assets/img/oraimo-airpods.png';
 import Samsung from '../assets/img/samsung-flip.png';
 import Wristband from '../assets/img/apple-wristband.png';
-import Creditcard from '../assets/img/CreditCard.png'
+import Creditcard from '../assets/img/CreditCard.png';
+import CheckoutSteps from "../components/CheckoutSteps";
 
 const Step3 = () => {
     return (
         <div className='px-4 py-6 md:px-24'>
             <div>
-                <div className="my-8 flex justify-between text-[#99A0AD]">
-                    <div className="md:flex items-center gap-2 hidden ">
-                        <LuMapPin />
-                        <span>
-                            <p>Step 1</p>
-                            <p className="text-lg">Address</p>
-                        </span>
+                <div className="flex justify-between">
+                    <div className="hidden md:flex">
+                        <CheckoutSteps icon={LuMapPin} stepNumber={1} stepName="Address" />
                     </div>
-                    <div className="flex items-center gap-2">
-                        <LuTruck />
-                        <span>
-                            <p>Step 2</p>
-                            <p className="text-lg">Shipping</p>
-                        </span>
-                    </div>
-                    <div className="flex items-center gap-2 text-[#002855]">
-                        <LuCreditCard />
-                        <span>
-                            <p>Step 3</p>
-                            <p className="text-lg">Payment</p>
-                        </span>
-                    </div>
+                    <CheckoutSteps icon={LuTruck} stepNumber={2} stepName="Shipping" />
+                    <CheckoutSteps icon={LuCreditCard} stepNumber={3} stepName="Payment" isActive />
                 </div>
 
                 <div className="md:flex gap-12 items-start md:max-w-4xl mx-auto">
