@@ -6,7 +6,7 @@ import { FaChevronDown, FaChevronUp } from "react-icons/fa6";
 const ProductListing = () => {
     return (
         <div className="bg-white px-4 py-10 md:px-24">
-            <div className=" lg:flex items-start gap-8 ">
+            <div className=" lg:flex items-start gap-8 max-w-[1240px] mx-auto">
                 <div className="flex gap-4 lg:hidden">
                     <button className="border border-[#D4D4D4] font-medium rounded-lg text-sm p-4 text-center inline-flex items-center text-blue-primary-60 " type="button">
                         <p>Filter</p> 
