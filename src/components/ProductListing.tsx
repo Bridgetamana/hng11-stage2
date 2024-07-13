@@ -6,7 +6,7 @@ import { FaChevronDown, FaChevronUp } from "react-icons/fa6";
 const ProductListing = () => {
     return (
         <div className="bg-white px-4 py-10 md:px-24">
-            <div className=" lg:flex items-start gap-8 max-w-[1240px] mx-auto">
+            <div className=" lg:flex items-start gap-8 ">
                 <div className="flex gap-4 lg:hidden">
                     <button className="border border-[#D4D4D4] font-medium rounded-lg text-sm p-4 text-center inline-flex items-center text-blue-primary-60 " type="button">
                         <p>Filter</p> 
@@ -138,41 +138,6 @@ const ProductListing = () => {
                     <div>
                         <ProductCard />
                     </div>
-                    <nav className="my-6 flex justify-center">
-                        <ul className="flex items-center space-x-2 h-8 text-sm">
-                            <li>
-                                <a href="#" className="flex items-center justify-center px-3 h-8 ms-0 text-blue-primary-60">
-                                    <span className="sr-only">Previous</span>
-                                    <svg className="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
-                                    </svg>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" className="flex items-center justify-center px-4 h-8 bg-blue-primary-60 text-white rounded-md">1</a>
-                            </li>
-                            <li>
-                                <a href="#" className="flex items-center justify-center px-3 h-8 text-blue-primary-60 bg-[#F6F6F6] rounded-md">2</a>
-                            </li>
-                            <li>
-                                <a href="#" aria-current="page" className="z-10 flex items-center justify-center px-3 h-8 text-blue-primary-60 bg-[#F6F6F6] rounded-md">3</a>
-                            </li>
-                            <li>
-                                <a href="#" className="flex items-center justify-center px-4 h-8 text-blue-primary-60 text-2xl">...</a>
-                            </li>
-                            <li>
-                                <a href="#" className="flex items-center justify-center px-3 h-8 text-blue-primary-60 bg-[#F6F6F6] rounded-md">12</a>
-                            </li>
-                            <li>
-                                <a href="#" className="flex items-center justify-center px-3 h-8 text-blue-primary-60">
-                                    <span className="sr-only">Next</span>
-                                    <svg className="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
-                                    </svg>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
                 </div>
             </div>
         </div>
