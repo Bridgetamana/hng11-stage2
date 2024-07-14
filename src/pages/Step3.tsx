@@ -1,5 +1,6 @@
+import { useState } from "react";
 import { LuMapPin, LuTruck, LuCreditCard } from "react-icons/lu";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Oraimo from '../assets/img/oraimo-airpods.png';
 import Samsung from '../assets/img/samsung-flip.png';
 import Wristband from '../assets/img/apple-wristband.png';
@@ -7,10 +8,51 @@ import Creditcard from '../assets/img/CreditCard.png';
 import CheckoutSteps from "../components/CheckoutSteps";
 
 const Step3 = () => {
+
+    const [cardHolder, setCardHolder] = useState('');
+    const [cardNumber, setCardNumber] = useState('');
+    const [expDate, setExpDate] = useState('');
+    const [cvv, setCvv] = useState('');
+    const [errors, setErrors] = useState<{ cardHolder?: string; cardNumber?: string; expDate?: string; cvv?: string }>({});
+
+    const navigate = useNavigate();
+
+    const validateForm = (): boolean => {
+        const newErrors: { cardHolder?: string; cardNumber?: string; expDate?: string; cvv?: string } = {};
+        let isValid = true;
+
+        if (!cardHolder) {
+            newErrors.cardHolder = 'Cardholder Name is required';
+            isValid = false;
+        }
+        if (!cardNumber) {
+            newErrors.cardNumber = 'Card Number is required';
+            isValid = false;
+        }
+        if (!expDate) {
+            newErrors.expDate = 'Expiration Date is required';
+            isValid = false;
+        }
+        if (!cvv) {
+            newErrors.cvv = 'CVV is required';
+            isValid = false;
+        }
+
+        setErrors(newErrors);
+        return isValid;
+    };
+
+    const handlePay = () => {
+        if (validateForm()) {
+            navigate('/checkout')
+            console.log('Testing if it works')
+        }
+    };
+
     return (
         <div className='px-4 py-6 md:px-24'>
             <div>
-                <div className="flex justify-between">
+                <div className="px-4 flex justify-between">
                     <div className="hidden md:flex">
                         <CheckoutSteps icon={LuMapPin} stepNumber={1} stepName="Address" />
                     </div>
@@ -18,7 +60,7 @@ const Step3 = () => {
                     <CheckoutSteps icon={LuCreditCard} stepNumber={3} stepName="Payment" isActive />
                 </div>
 
-                <div className="md:flex gap-12 items-start md:max-w-4xl mx-auto md:mt-16">
+                <div className="md:flex gap-12 items-start md:max-w-4xl mx-auto md:mt-16 mt-10">
                     <div>
                         <div className="md:border border-[#EBEBEB] rounded-md p-4">
                             <h2 className="text-xl mb-6">Summary</h2>
@@ -59,7 +101,7 @@ const Step3 = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="my-6">
+                        <div className="my-6 p-4">
                             <div className="space-y-4">
                                 <h2 className="text-[#545454] text-sm">Address</h2>
                                 <h3>1131 Random Street, Somewhereville, LG 40522</h3>
@@ -86,7 +128,7 @@ const Step3 = () => {
                             </div>
                         </div>
                     </div>
-                    <div>
+                    <div className="p-4">
                         <div className="my-6 md:my-0">
                             <h3 className="mb-2 text-2xl">Payment</h3>
                             <div className="flex justify-between">
@@ -102,11 +144,33 @@ const Step3 = () => {
 
                         <div className="">
                             <form className="space-y-4">
-                                <input type="text" name="text" placeholder="Cardholder Name" className="border border-[#CECECE] text-[#CECECE] rounded-md py-3 pl-4 w-full outline-none" />
-                                <input type="text" name="text" placeholder="Card Number" className="border border-[#CECECE] text-[#CECECE] rounded-md py-3 pl-4 w-full outline-none" />
+                                <input type="text" value={cardHolder}
+
+                                    name="text" placeholder="Cardholder Name" onChange={(e) => setCardHolder(e.target.value)}
+                                    className={`border border-[#CECECE] rounded-md py-3 pl-4 w-full outline-none ${errors.cardHolder ? 'border-red-500' : ''}`} />
+                                {errors.cardHolder && <p className="text-red-500 text-sm">{errors.cardHolder}</p>}
+                                <input type="text" name="text" placeholder="Card Number" value={cardNumber}
+                                    onChange={(e) => setCardNumber(e.target.value)}
+                                    className={`border border-[#CECECE] rounded-md py-3 pl-4 w-full outline-none ${errors.cardNumber ? 'border-red-500' : ''}`}
+                                />
+                                {errors.cardNumber && <p className="text-red-500 text-sm">{errors.cardNumber}</p>}
                                 <div className="flex gap-3">
-                                    <input type="text" name="text" placeholder="Exp Date" className="border border-[#CECECE] text-[#CECECE] rounded-md py-3 pl-4 w-full outline-none" />
-                                    <input type="text" name="text" placeholder="CVV" className="border border-[#CECECE] text-[#CECECE] rounded-md py-3 pl-4 w-full outline-none" />
+                                    <div>
+
+                                        <input type="text" name="text" placeholder="Exp Date" value={expDate}
+                                            onChange={(e) => setExpDate(e.target.value)}
+                                            className={`border border-[#CECECE] rounded-md py-3 pl-4 w-full outline-none ${errors.expDate ? 'border-red-500' : ''}`}
+                                        />
+                                        {errors.expDate && <p className="text-red-500 text-sm">{errors.expDate}</p>}
+                                    </div>
+                                    <div>
+
+                                        <input type="text" name="text" placeholder="CVV" value={cvv}
+                                            onChange={(e) => setCvv(e.target.value)}
+                                            className={`border border-[#CECECE] rounded-md py-3 pl-4 w-full outline-none ${errors.cvv ? 'border-red-500' : ''}`}
+                                        />
+                                        {errors.cvv && <p className="text-red-500 text-sm">{errors.cvv}</p>}
+                                    </div>
                                 </div>
                                 <div className="flex">
 
@@ -119,14 +183,12 @@ const Step3 = () => {
 
                     </div>
                 </div>
-                    <div className="flex md:justify-end justify-center gap-8 mt-8">
-                        <Link to='/step2'>
-                        <button className="border border-blue-primary-60 text-blue-primary-60 py-2.5 px-14 text-center rounded-md">Back</button>
-                        </Link>
-                        <Link to='/checkout'>
-                            <button className="bg-blue-primary-60 text-white py-2.5 px-14 text-center rounded-md">Pay</button>
-                        </Link>
-                    </div>
+                <div className="flex md:justify-end justify-center gap-8 mt-8">
+                    <Link to='/step2'>
+                        <button className="border border-blue-primary-60 text-blue-primary-60 py-2.5 px-10 text-center rounded-md">Back</button>
+                    </Link>
+                    <button className="border border-blue-primary-60 bg-blue-primary-60 text-white py-2.5 px-10 text-center rounded-md" onClick={handlePay}>Pay</button>
+                </div>
             </div>
         </div>
     )
