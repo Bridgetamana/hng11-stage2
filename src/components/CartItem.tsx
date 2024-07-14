@@ -73,7 +73,7 @@ const CartItem = ({ id, imgSrc, name, price, onRemove }: { id: number, imgSrc: s
                 </div>
                 <span className="">
                     <span>
-                        <p>#{price}</p>
+                        <p>#{total}</p>
                     </span>
                     <div className="text-[#001845] flex gap-1 items-center border border-blue-primary-60 p-1">
                         <button className="text-lg" onClick={handleIncrement}><MdAdd /></button>

@@ -65,7 +65,7 @@ const ProductCard: React.FC = () => {
         <div>
             <div className='grid grid-cols-2 gap-y-6 gap-x-4 md:grid-cols-3 max-w-md mx-auto md:max-w-3xl lg:max-w-7xl'>
                 {products.map((product) => (
-                    <Link to={`/productdetail/${product.id}`} className='bg-[#F6F6F6] rounded-md pb-4 pt-7 px-2 md:py-4 flex flex-col cursor-pointer h-full max-w-[240px] transition duration-500 hover:scale-105' key={product.id}>
+                    <Link to='/productdetail' className='bg-[#F6F6F6] rounded-md pb-4 pt-7 px-2 md:py-4 flex flex-col cursor-pointer h-full max-w-[240px] transition duration-500 hover:scale-105' key={product.id}>
                         <div className='w-28 h-28 mx-auto flex-shrink-0'>
                             <img src={`https://api.timbu.cloud/images/${product?.photos[0]?.url}`} alt={product.name} className='w-full h-full' />
                         </div>
