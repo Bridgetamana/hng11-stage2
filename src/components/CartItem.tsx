@@ -2,9 +2,26 @@ import { useState } from 'react';
 import { MdAdd } from "react-icons/md";
 import { LuMinus } from "react-icons/lu";
 
-const CartItem = ({ imgSrc, name, price, total: initialTotal }: { imgSrc: string, name: string, price: number, total?: number}) => {
+const Modal = ({ isVisible, onConfirm, onCancel }: { isVisible: boolean, onConfirm: () => void, onCancel: () => void }) => {
+    if (!isVisible) return null;
+
+    return (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <div className="bg-white p-4 rounded shadow-lg">
+                <p>Do you want to remove this item?</p>
+                <div className="flex justify-end mt-4">
+                    <button className="mr-2 px-4 py-2 bg-[#F6F6F6] rounded" onClick={onCancel}>No</button>
+                    <button className="px-4 py-2 bg-red-500 text-white rounded" onClick={onConfirm}>Yes</button>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+const CartItem = ({ id, imgSrc, name, price, onRemove }: { id: number, imgSrc: string, name: string, price: number, onRemove: (id: number) => void }) => {
     const [quantity, setQuantity] = useState(1);
-    const [total, setTotal] = useState(initialTotal || price);
+    const [total, setTotal] = useState(price);
+    const [isModalVisible, setIsModalVisible] = useState(false);
 
     const handleIncrement = () => {
         setQuantity(prevQuantity => {
@@ -22,26 +39,35 @@ const CartItem = ({ imgSrc, name, price, total: initialTotal }: { imgSrc: string
                 return newQuantity;
             });
         } else {
-            handleRemove();
+            setIsModalVisible(true);
         }
     };
 
     const handleRemove = () => {
-        if (window.confirm('Do you want to remove this item?')) {
-            console.log('poof!, it is gone')
-        }
+        setIsModalVisible(true);
+    };
+
+    const handleConfirmRemove = () => {
+        setIsModalVisible(false);
+        onRemove(id);
+    };
+
+    const handleCancelRemove = () => {
+        setIsModalVisible(false);
     };
 
     return (
         <div>
+            <Modal isVisible={isModalVisible} onConfirm={handleConfirmRemove} onCancel={handleCancelRemove} />
+
             {/* mobile cart */}
             <div className="flex md:hidden items-center justify-between border-y border-[#E5E5E5] py-4">
                 <div className="flex justify-between items-center gap-4 lg:gap-8 ">
-                    <div className="bg-[#F7F8FA] w-36 flex-shrink-0">
+                    <div className="bg-[#F7F8FA] w-24 md:w-36 flex-shrink-0">
                         <img src={imgSrc} className="w-full" alt={name} />
                     </div>
                     <span className="flex-grow">
-                        <h3 className="text-xl text-wrap">{name}</h3>
+                        <h3 className="text-lg text-wrap">{name}</h3>
                         <button className="text-[#001845] border-b-2 border-[#001845]" onClick={handleRemove}>Remove</button>
                     </span>
                 </div>
