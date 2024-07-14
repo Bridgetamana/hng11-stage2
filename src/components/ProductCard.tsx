@@ -32,7 +32,7 @@ const ProductCard: React.FC = () => {
                 const data = await response.json();
                 console.log('Fetched products:', data);
                 setProducts(data.items);
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
             } catch (error: any) {
                 setError(error.message);
             } finally {
@@ -95,8 +95,8 @@ const ProductCard: React.FC = () => {
                     <button
                         key={pageNumber}
                         className={`py-2 px-4 rounded-lg ${page === pageNumber
-                                ? 'bg-blue-primary-60 text-white'
-                                : 'bg-[#F6F6F6] text-blue-primary-60'
+                            ? 'bg-blue-primary-60 text-white'
+                            : 'bg-[#F6F6F6] text-blue-primary-60'
                             } disabled:opacity-50 disabled:cursor-not-allowed`}
                         onClick={() => setPage(pageNumber)}
                         disabled={products.length < 10 && pageNumber > 1}
@@ -115,5 +115,4 @@ const ProductCard: React.FC = () => {
         </div>
     );
 };
-
 export default ProductCard;
