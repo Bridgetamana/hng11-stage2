@@ -78,7 +78,7 @@ const ProductDetail = () => {
                             </div>
                             <div className="flex justify-center">
                                 <button className="rounded-md border py-3 px-10 border-[#33415C] text-[#33415C] mt-6 flex items-center gap-3">View more
-                                    <MdKeyboardArrowDown className="text-xl"/>
+                                    <MdKeyboardArrowDown className="text-xl" />
                                 </button>
                             </div>
                         </div>

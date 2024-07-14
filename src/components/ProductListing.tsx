@@ -133,7 +133,7 @@ const ProductListing = () => {
                 <div className="lg:w-[65%]">
                     <span className="flex items-center gap-1 my-6 lg:my-0 lg:mb-6">
                         <h3 className="text-[#6C6C6C]">Selected Products:</h3>
-                        <p className="text-xl">146</p>
+                        <p className="text-xl">30</p>
                     </span>
                     <div>
                         <ProductCard />

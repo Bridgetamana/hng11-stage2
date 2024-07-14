@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { LuChevronLeft, LuChevronRight } from "react-icons/lu";
 
 interface Product {
     id: string;
@@ -53,47 +54,64 @@ const ProductCard: React.FC = () => {
     }
 
     if (error) {
-        return <div>Error fetching products: {error}</div>;
+        return (
+            <div className='text-red-700 flex items-center justify-center'>
+                <p>Error fetching products: Please refresh</p>
+            </div>
+        );
     }
 
     return (
         <div>
-            <div className='grid grid-cols-2 gap-y-6 gap-x-2 md:grid-cols-3 max-w-md mx-auto md:max-w-3xl lg:max-w-7xl'>
+            <div className='grid grid-cols-2 gap-y-6 gap-x-4 md:grid-cols-3 max-w-md mx-auto md:max-w-3xl lg:max-w-7xl'>
                 {products.map((product) => (
-                    <Link to="/productdetail" className='bg-[#F6F6F6] rounded-md pb-4 pt-7 px-2 md:py-4 flex flex-col cursor-pointer h-full max-w-[240px] hover:shadow-md' key={product.id}>
+                    <Link to={`/productdetail/${product.id}`} className='bg-[#F6F6F6] rounded-md pb-4 pt-7 px-2 md:py-4 flex flex-col cursor-pointer h-full max-w-[240px] transition duration-500 hover:scale-105' key={product.id}>
                         <div className='w-28 h-28 mx-auto flex-shrink-0'>
                             <img src={`https://api.timbu.cloud/images/${product?.photos[0]?.url}`} alt={product.name} className='w-full h-full' />
                         </div>
                         <div className='text-center mt-4'>
                             <p className="h-16 flex-grow">{product.name}</p>
-                            <p className='text-2xl font-semibold my-2'>
+                            <p className='text-xl font-semibold my-2'>
                                 ₦{typeof product.current_price === 'string' ? product.current_price : product?.current_price[0]?.NGN[0]}
                             </p>
                         </div>
                         <div className='flex justify-center gap-6 items-center mt-auto'>
-                            <button className='bg-blue-primary-60 rounded-lg py-2.5 px-4 md:px-10 text-white text-sm'>
+                            <button className='bg-blue-primary-60 rounded-lg py-2.5 px-4 md:px-10 text-white text-sm hover:scale-105'>
                                 Add to Cart
                             </button>
                         </div>
                     </Link>
                 ))}
             </div>
-                <div className="flex justify-center items-center mt-8 space-x-4">
+            <div className="flex justify-center items-center mt-8 space-x-4">
+                <button
+                    className="text-blue-primary-60 py-2 px-4 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                    onClick={() => setPage(page > 1 ? page - 1 : 1)}
+                    disabled={page === 1}
+                >
+                    <LuChevronLeft />
+                </button>
+                {[1, 2, 3].map((pageNumber) => (
                     <button
-                        className="bg-blue-primary-60 text-white py-2 px-4 rounded-lg disabled:opacity-50"
-                        onClick={() => setPage(page > 1 ? page - 1 : 1)}
-                        disabled={page === 1}
+                        key={pageNumber}
+                        className={`py-2 px-4 rounded-lg ${page === pageNumber
+                                ? 'bg-blue-primary-60 text-white'
+                                : 'bg-[#F6F6F6] text-blue-primary-60'
+                            } disabled:opacity-50 disabled:cursor-not-allowed`}
+                        onClick={() => setPage(pageNumber)}
+                        disabled={products.length < 10 && pageNumber > 1}
                     >
-                        Previous
+                        {pageNumber}
                     </button>
-                    <button
-                        className="bg-blue-primary-60 text-white py-2 px-4 rounded-lg disabled:opacity-50"
-                        onClick={() => setPage(page + 1)}
-                        disabled={products.length < 10}
-                    >
-                        Next
-                    </button>
-                </div>
+                ))}
+                <button
+                    className="text-blue-primary-60 py-2 px-4 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                    onClick={() => setPage(page + 1)}
+                    disabled={products.length < 10 || page === 3}
+                >
+                    <LuChevronRight />
+                </button>
+            </div>
         </div>
     );
 };
