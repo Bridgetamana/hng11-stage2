@@ -57,8 +57,8 @@ const Step2 = () => {
                             </div>
                             <div className="flex flex-col justify-between w-full md:flex-row">
                                 <div className="flex justify-between items-center mb-4 w-full md:flex-row-reverse md:justify-end md:gap-4">
-                                    <p className="text-wrap">Regular Shipment</p>
-                                    <p>Free</p>
+                                    <p className="text-wrap">Fast track delivery</p>
+                                    <p>₦5000</p>
                                 </div>
                                 <p className="w-28">18, Oct 2024</p>
                             </div>
@@ -78,8 +78,8 @@ const Step2 = () => {
                             </div>
                             <div className="flex flex-col justify-between w-full md:flex-row">
                                 <div className="flex justify-between mb-4 w-full md:flex-row-reverse md:justify-end md:gap-4">
-                                    <p className="text-wrap">Scheduled Shipment</p>
-                                    <p>Null</p>
+                                    <p className="text-wrap">Pick a date when you want to get your delivery</p>
+                                    <p>Scheduled</p>
                                 </div>
                                 <span className="border border-[#99A0AD] py-2 px-3 flex justify-between rounded-md w-36 md:border-0">
                                     <select

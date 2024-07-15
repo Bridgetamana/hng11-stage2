@@ -8,10 +8,14 @@ const Modal = ({ isVisible, onConfirm, onCancel }: { isVisible: boolean, onConfi
     return (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
             <div className="bg-white p-4 rounded shadow-lg">
-                <p>Do you want to remove this item?</p>
+                <div className='flex justify-end mb-2'>
+                    <button className=' hover:bg-[#F6F6F6] hover:text-black text-[#99A0AD] rounded-lg text-xl py-1 px-2.5 items-center ' onClick={onCancel}>x</button>
+                </div>
+                <p>Are you sure you want to delete this item?
+                </p>
                 <div className="flex justify-end mt-4">
-                    <button className="mr-2 px-4 py-2 bg-[#F6F6F6] rounded" onClick={onCancel}>No</button>
-                    <button className="px-4 py-2 bg-red-500 text-white rounded" onClick={onConfirm}>Yes</button>
+                    <button className="mr-2 py-1.5 px-3 text-sm font-medium text-center bg-[#F6F6F6] rounded" onClick={onCancel}>No</button>
+                    <button className="py-1.3 px-4 text-sm font-medium text-center text-white bg-red-600 hover:bg-red-700 rounded" onClick={onConfirm}>Yes</button>
                 </div>
             </div>
         </div>

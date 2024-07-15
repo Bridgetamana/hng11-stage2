@@ -75,7 +75,7 @@ const AddressModal = ({ onClose, onSave }: AddressModalProps) => {
                 <div className="flex justify-end gap-4">
                     <button
                         onClick={onClose}
-                        className="bg-[#556177] text-white py-2 px-4 rounded"
+                        className="text-sm font-medium text-center bg-[#F6F6F6] py-2 px-4 rounded"
                     >
                         Cancel
                     </button>

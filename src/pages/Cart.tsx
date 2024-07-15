@@ -1,15 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
-import Oraimo from '../assets/img/oraimo-airpods.png';
 import Headphone from "../assets/img/product_havit_wireless_headphone.jpg";
-import Wristband from '../assets/img/apple-wristband.png';
 import CartItem from "../components/CartItem";
 
 const Cart = () => {
     const initialCartItems = [
-        { id: 1, imgSrc: Oraimo, name: "Oraimo Freepods", price: 30000, total: 30000 },
-        { id: 2, imgSrc: Headphone, name: "Samsung Galaxy Z Flip Ultra Max", price: 1368000, total: 1368000 },
-        { id: 3, imgSrc: Wristband, name: "Apple Arm Band", price: 240000, total: 240000 }
+        { id: 1, imgSrc: Headphone, name: "Havit Wireless Headphone", price: 22500, total: 22500 }
     ];
 
     const [cartItems, setCartItems] = useState(initialCartItems);
