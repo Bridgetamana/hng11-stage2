@@ -1,4 +1,4 @@
-import Headphone from "../assets/img/product_havit_wireless_headphone.jpg"
+import Headphone from "../assets/img/product_havit_wireless_headphone.jpg";
 
 
 const ProductDetail = () => {

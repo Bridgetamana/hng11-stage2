@@ -18,7 +18,7 @@ const Modal = ({ isVisible, onConfirm, onCancel }: { isVisible: boolean, onConfi
     );
 };
 
-const CartItem = ({ id, imgSrc, name, price, onRemove }: { id: number, imgSrc: string, name: string, price: number, onRemove: (id: number) => void }) => {
+const CartItem = ({ id, imgSrc, name, price, onRemove, onQuantityChange }: { id: number, imgSrc: string, name: string, price: number, onRemove: (id: number) => void, onQuantityChange: (id: number, quantity: number, total: number) => void }) => {
     const [quantity, setQuantity] = useState(1);
     const [total, setTotal] = useState(price);
     const [isModalVisible, setIsModalVisible] = useState(false);
@@ -26,7 +26,9 @@ const CartItem = ({ id, imgSrc, name, price, onRemove }: { id: number, imgSrc: s
     const handleIncrement = () => {
         setQuantity(prevQuantity => {
             const newQuantity = prevQuantity + 1;
-            setTotal(newQuantity * price);
+            const newTotal = newQuantity * price;
+            setTotal(newTotal);
+            onQuantityChange(id, newQuantity, newTotal);
             return newQuantity;
         });
     };
@@ -35,7 +37,9 @@ const CartItem = ({ id, imgSrc, name, price, onRemove }: { id: number, imgSrc: s
         if (quantity > 1) {
             setQuantity(prevQuantity => {
                 const newQuantity = prevQuantity - 1;
-                setTotal(newQuantity * price);
+                const newTotal = newQuantity * price;
+                setTotal(newTotal);
+                onQuantityChange(id, newQuantity, newTotal);
                 return newQuantity;
             });
         } else {
@@ -63,7 +67,7 @@ const CartItem = ({ id, imgSrc, name, price, onRemove }: { id: number, imgSrc: s
             {/* mobile cart */}
             <div className="flex md:hidden items-center justify-between border-y border-[#E5E5E5] py-4">
                 <div className="flex justify-between items-center gap-4 lg:gap-8 ">
-                    <div className="bg-[#F7F8FA] w-24 md:w-36 flex-shrink-0">
+                    <div className="bg-[#F7F8FA] w-24 md:w-48 flex-shrink-0">
                         <img src={imgSrc} className="w-full" alt={name} />
                     </div>
                     <span className="flex-grow">

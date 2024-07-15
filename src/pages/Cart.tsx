@@ -1,22 +1,36 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import Oraimo from '../assets/img/oraimo-airpods.png';
-import Samsung from '../assets/img/samsung-flip.png';
+import Headphone from "../assets/img/product_havit_wireless_headphone.jpg";
 import Wristband from '../assets/img/apple-wristband.png';
 import CartItem from "../components/CartItem";
 
 const Cart = () => {
     const initialCartItems = [
         { id: 1, imgSrc: Oraimo, name: "Oraimo Freepods", price: 30000, total: 30000 },
-        { id: 2, imgSrc: Samsung, name: "Samsung Galaxy Z Flip Ultra Max", price: 1368000, total: 1368000 },
+        { id: 2, imgSrc: Headphone, name: "Samsung Galaxy Z Flip Ultra Max", price: 1368000, total: 1368000 },
         { id: 3, imgSrc: Wristband, name: "Apple Arm Band", price: 240000, total: 240000 }
     ];
 
     const [cartItems, setCartItems] = useState(initialCartItems);
+    const [subtotal, setSubtotal] = useState(0);
+
+    useEffect(() => {
+        const calculateSubtotal = () => {
+            const total = cartItems.reduce((acc, item) => acc + item.total, 0);
+            setSubtotal(total);
+        };
+
+        calculateSubtotal();
+    }, [cartItems]);
 
     const handleRemoveItem = (itemId: number) => {
         setCartItems(prevItems => prevItems.filter(item => item.id !== itemId));
         alert('Item has been removed');
+    };
+
+    const handleQuantityChange = (id: number, _quantity: number, total: number) => {
+        setCartItems(prevItems => prevItems.map(item => item.id === id ? { ...item, total } : item));
     };
 
     return (
@@ -44,11 +58,12 @@ const Cart = () => {
                         name={item.name}
                         price={item.price}
                         onRemove={handleRemoveItem}
+                        onQuantityChange={handleQuantityChange}
                     />
                 ))}
                 {/* checkout form */}
                 <div className="text-center my-8">
-                    <h2 className="text-xl">Sub-total  #1,638,000</h2>
+                    <h2 className="text-xl">Sub-total #{subtotal}</h2>
                     <p className="text-[#9E9E9E]">Tax and shipping cost will be calculated later</p>
                 </div>
                 <div className="px-3 py-10 border border-[#EBEBEB] rounded-xl">
@@ -88,6 +103,7 @@ const Cart = () => {
                         name={item.name}
                         price={item.price}
                         onRemove={handleRemoveItem}
+                        onQuantityChange={handleQuantityChange}
                     />
                 ))}
                 {/* Checkout form */}
@@ -100,8 +116,8 @@ const Cart = () => {
                             id="code"
                             placeholder='code' className='text-[#556177] w-full rounded-md border border-[#9F9F9F] outline-none py-2 pl-2' />
                     </form>
-                    <div className=" w-1/3">
-                        <h2 className="text-xl">Sub-total  #1,638,000</h2>
+                    <div className="w-1/3">
+                        <h2 className="text-xl">Sub-total #{subtotal}</h2>
                         <p className="text-[#9E9E9E]">Tax and shipping cost will be calculated later</p>
                     </div>
                     <Link to='/step1'>

@@ -69,6 +69,9 @@ const ProductCard: React.FC = () => {
                         <div className='w-28 h-28 mx-auto flex-shrink-0'>
                             <img src={`https://api.timbu.cloud/images/${product?.photos[0]?.url}`} alt={product.name} className='w-full h-full' />
                         </div>
+                        <div>
+                            
+                        </div>
                         <div className='text-center mt-4'>
                             <p className="h-16 flex-grow">{product.name}</p>
                             <p className='text-xl font-semibold my-2'>
