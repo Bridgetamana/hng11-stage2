@@ -81,7 +81,7 @@ const CartItem = ({ id, imgSrc, name, price, onRemove, onQuantityChange }: { id:
                 </div>
                 <span className="">
                     <span>
-                        <p>#{total}</p>
+                        <p>₦{total}</p>
                     </span>
                     <div className="text-[#001845] flex gap-1 items-center border border-blue-primary-60 p-1">
                         <button className="text-lg" onClick={handleIncrement}><MdAdd /></button>
@@ -104,14 +104,14 @@ const CartItem = ({ id, imgSrc, name, price, onRemove, onQuantityChange }: { id:
                 </div>
                 <div className="flex justify-between items-center">
                     <span>
-                        <p>#{price}</p>
+                        <p>₦{price}</p>
                     </span>
                     <div className="text-[#001845] flex gap-1 items-center border border-blue-primary-60 p-2">
                         <button className="text-xl" onClick={handleIncrement}><MdAdd /></button>
                         <p>{quantity}</p>
                         <button className="text-xl" onClick={handleDecrement}><LuMinus /></button>
                     </div>
-                    <span>#{total}</span>
+                    <span>₦{total}</span>
                 </div>
             </div>
         </div>

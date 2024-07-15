@@ -1,9 +1,7 @@
 import { useState } from "react";
 import { LuMapPin, LuTruck, LuCreditCard } from "react-icons/lu";
 import { Link, useNavigate } from "react-router-dom";
-import Oraimo from '../assets/img/oraimo-airpods.png';
-import Samsung from '../assets/img/samsung-flip.png';
-import Wristband from '../assets/img/apple-wristband.png';
+import Headphone from "../assets/img/product_havit_wireless_headphone.jpg";
 import Creditcard from '../assets/img/CreditCard.png';
 import CheckoutSteps from "../components/CheckoutSteps";
 
@@ -69,35 +67,16 @@ const Step3 = () => {
                                 <div className="flex items-center justify-between bg-[#F6F6F6] rounded-xl py-3 px-5">
                                     <div className="flex justify-between items-center gap-4 lg:gap-8 ">
                                         <div className="w-16 flex-shrink-0">
-                                            <img src={Samsung} className="w-full" alt="" />
+                                            <img src={Headphone} className="w-full" alt="" />
                                         </div>
                                         <span className="flex-grow">
-                                            <h3 className="text-lg text-wrap">Samsung Galaxy Z Flip </h3>
+                                            <h3 className="text-lg text-wrap">Havit Wireless Headphone
+                                            </h3>
                                         </span>
                                     </div>
-                                    <p>#1,368,000</p>
-                                </div>
-                                <div className="flex items-center justify-between bg-[#F6F6F6] rounded-xl py-3 px-5">
-                                    <div className="flex justify-between items-center gap-4 lg:gap-8 ">
-                                        <div className="w-20 flex-shrink-0">
-                                            <img src={Wristband} className="w-full" alt="" />
-                                        </div>
-                                        <span className="flex-grow">
-                                            <h3 className="text-lg text-wrap">Apple Arm Band</h3>
-                                        </span>
-                                    </div>
-                                    <p>#240,000</p>
-                                </div>
-                                <div className="flex items-center justify-between bg-[#F6F6F6] rounded-xl py-3 px-5">
-                                    <div className="flex justify-between items-center gap-4 lg:gap-8 ">
-                                        <div className="w-20 flex-shrink-0">
-                                            <img src={Oraimo} className="w-full" alt="" />
-                                        </div>
-                                        <span className="flex-grow">
-                                            <h3 className="text-lg text-wrap">Oraimo Freepods</h3>
-                                        </span>
-                                    </div>
-                                    <p>#30000</p>
+                                    <p>₦22500
+
+                                    </p>
                                 </div>
                             </div>
                         </div>

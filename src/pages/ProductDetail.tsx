@@ -26,8 +26,8 @@ const ProductDetail = () => {
                             </div>
                         </div>
                         <div className="mt-8 mb-4 space-y-4 md:flex gap-4 md:space-y-0">
-                            <button className="w-full py-4 border md:py-1 border-blue-primary-60 rounded">Add to Wishlist</button>
-                            <button className="w-full py-4 border md:py-1  border-blue-primary-60 rounded text-white bg-blue-primary-60">Add to Cart</button>
+                            <button className="w-full py-4 border border-blue-primary-60 rounded">Add to Wishlist</button>
+                            <button className="w-full py-4 border border-blue-primary-60 rounded text-white bg-blue-primary-60">Add to Cart</button>
                         </div>
                     </div>
                 </div>

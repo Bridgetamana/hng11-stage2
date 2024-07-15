@@ -59,7 +59,7 @@ const Cart = () => {
                 ))}
                 {/* checkout form */}
                 <div className="text-center my-8">
-                    <h2 className="text-xl">Sub-total #{subtotal}</h2>
+                    <h2 className="text-xl">Sub-total ₦{subtotal}</h2>
                     <p className="text-[#9E9E9E]">Tax and shipping cost will be calculated later</p>
                 </div>
                 <div className="px-3 py-10 border border-[#EBEBEB] rounded-xl">
@@ -113,7 +113,7 @@ const Cart = () => {
                             placeholder='code' className='text-[#556177] w-full rounded-md border border-[#9F9F9F] outline-none py-2 pl-2' />
                     </form>
                     <div className="w-1/3">
-                        <h2 className="text-xl">Sub-total #{subtotal}</h2>
+                        <h2 className="text-xl">Sub-total ₦{subtotal}</h2>
                         <p className="text-[#9E9E9E]">Tax and shipping cost will be calculated later</p>
                     </div>
                     <Link to='/step1'>
