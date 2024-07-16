@@ -6,6 +6,7 @@ import CartItem from "../components/CartItem";
 const Cart = () => {
     const { cartItems, removeFromCart, updateQuantity } = useCart();
     const [subtotal, setSubtotal] = useState(0);
+    
 
     useEffect(() => {
         const total = cartItems.reduce((acc, item) => acc + item.total, 0);
@@ -37,6 +38,7 @@ const Cart = () => {
                             <p>Price</p>
                         </span>
                         {cartItems.map(item => (
+                            
                             <CartItem
                                 key={item.id}
                                 id={item.id}
@@ -85,7 +87,7 @@ const Cart = () => {
                                 name={item.name}
                                 price={item.price}
                                 onRemove={removeFromCart}
-                                onQuantityChange={updateQuantity}
+                                onQuantityChange={updateQuantity} 
                             />
                         ))}
                         <div className="flex justify-between items-center my-12">
