@@ -22,7 +22,8 @@ const Modal = ({ isVisible, onConfirm, onCancel }: { isVisible: boolean, onConfi
     );
 };
 
-const CartItem = ({ id, imgSrc, name, price, onRemove, onQuantityChange }: { id: number, imgSrc: string, name: string, price: number, onRemove: (id: number) => void, onQuantityChange: (id: number, quantity: number, total: number) => void }) => {
+const CartItem = ({ id, imgSrc, name, price, onRemove, onQuantityChange }: { id: string, imgSrc: string, name: string, price: number, onRemove: (id: string) => void, onQuantityChange: (id: string, quantity: number, total: number) => void }) => {
+
     const [quantity, setQuantity] = useState(1);
     const [total, setTotal] = useState(price);
     const [isModalVisible, setIsModalVisible] = useState(false);
@@ -64,7 +65,9 @@ const CartItem = ({ id, imgSrc, name, price, onRemove, onQuantityChange }: { id:
         setIsModalVisible(false);
     };
 
+
     return (
+        
         <div>
             <Modal isVisible={isModalVisible} onConfirm={handleConfirmRemove} onCancel={handleCancelRemove} />
 

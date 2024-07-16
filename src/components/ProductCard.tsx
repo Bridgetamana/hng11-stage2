@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { LuChevronLeft, LuChevronRight } from "react-icons/lu";
+import { useCart } from './CartContext';
 
 interface Product {
     id: string;
@@ -20,6 +21,20 @@ const ProductCard: React.FC = () => {
     const API_ID = 'ES42I1L9BSDSVH2';
     const API_KEY = 'a81ec612e74d4189a464e2f3e35ab17d20240713160038463229';
 
+    const { addToCart } = useCart();
+
+    const handleAddToCart = (product: Product) => {
+        addToCart({
+            id: product.id,
+            imgSrc: product.photos[0]?.url,
+            name: product.name,
+            price: product.current_price,
+            total: product.current_price,
+        });
+        alert(`${product.name} has been added to your cart.`);
+    };
+
+
     useEffect(() => {
         const fetchProducts = async () => {
             try {
@@ -30,7 +45,6 @@ const ProductCard: React.FC = () => {
                     throw new Error('Network response was not ok');
                 }
                 const data = await response.json();
-                console.log('Fetched products:', data);
                 setProducts(data.items);
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
             } catch (error: any) {
@@ -65,7 +79,7 @@ const ProductCard: React.FC = () => {
         <div>
             <div className='grid grid-cols-2 gap-y-6 gap-x-4 md:grid-cols-3 max-w-md mx-auto md:max-w-3xl lg:max-w-7xl'>
                 {products.map((product) => (
-                    <Link to='/productdetail' className='bg-[#F6F6F6] rounded-md pb-4 pt-7 px-2 md:py-4 flex flex-col cursor-pointer h-full max-w-[240px] transition duration-500 hover:scale-105' key={product.id}>
+                    <Link to={`/productdetail/${product.id}`} className='bg-[#F6F6F6] rounded-md pb-4 pt-7 px-2 md:py-4 flex flex-col cursor-pointer h-full max-w-[240px] transition duration-500 hover:scale-105' key={product.id}>
                         <div className='w-28 h-28 mx-auto flex-shrink-0'>
                             <img src={`https://api.timbu.cloud/images/${product?.photos[0]?.url}`} alt={product.name} className='w-full h-full' />
                         </div>
@@ -79,7 +93,7 @@ const ProductCard: React.FC = () => {
                             </p>
                         </div>
                         <div className='flex justify-center gap-6 items-center mt-auto'>
-                            <button className='bg-blue-primary-60 rounded-lg py-2.5 px-4 md:px-10 text-white text-sm hover:scale-105'>
+                            <button className='bg-blue-primary-60 rounded-lg py-2.5 px-4 md:px-10 text-white text-sm hover:scale-105' onClick={() => handleAddToCart(product)}>
                                 Add to Cart
                             </button>
                         </div>

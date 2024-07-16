@@ -1,18 +1,17 @@
 import { useState } from "react";
 import { LuMapPin, LuTruck, LuCreditCard } from "react-icons/lu";
 import { Link, useNavigate } from "react-router-dom";
-import Headphone from "../assets/img/product_havit_wireless_headphone.jpg";
+import { useCart } from "../components/CartContext";
 import Creditcard from '../assets/img/CreditCard.png';
 import CheckoutSteps from "../components/CheckoutSteps";
 
 const Step3 = () => {
-
+    const { cartItems } = useCart();
     const [cardHolder, setCardHolder] = useState('');
     const [cardNumber, setCardNumber] = useState('');
     const [expDate, setExpDate] = useState('');
     const [cvv, setCvv] = useState('');
     const [errors, setErrors] = useState<{ cardHolder?: string; cardNumber?: string; expDate?: string; cvv?: string }>({});
-
     const navigate = useNavigate();
 
     const validateForm = (): boolean => {
@@ -42,9 +41,13 @@ const Step3 = () => {
 
     const handlePay = () => {
         if (validateForm()) {
-            navigate('/checkout')
-            console.log('Testing if it works')
+            navigate('/checkout');
+            console.log('Payment successful');
         }
+    };
+
+    const calculateTotal = () => {
+        return cartItems.reduce((acc, item) => acc + item.total, 0);
     };
 
     return (
@@ -64,22 +67,22 @@ const Step3 = () => {
                             <h2 className="text-xl mb-6">Summary</h2>
 
                             <div className="space-y-4">
-                                <div className="flex items-center justify-between bg-[#F6F6F6] rounded-xl py-3 px-5">
-                                    <div className="flex justify-between items-center gap-4 lg:gap-8 ">
-                                        <div className="w-16 flex-shrink-0">
-                                            <img src={Headphone} className="w-full" alt="" />
+                                {cartItems.map(item => (
+                                    <div key={item.id} className="flex items-center justify-between bg-[#F6F6F6] rounded-xl py-3 px-5">
+                                        <div className="flex justify-between items-center gap-4 lg:gap-8">
+                                            <div className="w-16 flex-shrink-0">
+                                                <img src={item.imgSrc} className="w-full" alt={item.name} />
+                                            </div>
+                                            <span className="flex-grow">
+                                                <h3 className="text-lg text-wrap">{item.name}</h3>
+                                            </span>
                                         </div>
-                                        <span className="flex-grow">
-                                            <h3 className="text-lg text-wrap">Havit Wireless Headphone
-                                            </h3>
-                                        </span>
+                                        <p>₦{item.price}</p>
                                     </div>
-                                    <p>₦22500
-
-                                    </p>
-                                </div>
+                                ))}
                             </div>
                         </div>
+
                         <div className="my-6 p-4">
                             <div className="space-y-4">
                                 <h2 className="text-[#545454] text-sm">Address</h2>
@@ -91,19 +94,19 @@ const Step3 = () => {
                             </div>
                             <div className="flex justify-between items-center my-4">
                                 <p>Subtotal</p>
-                                <p>#1,163,000</p>
+                                <p>₦{calculateTotal()}</p>
                             </div>
                             <div className="flex justify-between my-4">
-                                <p className="text-[#545454">Estimated Tax</p>
-                                <p>#40000</p>
+                                <p className="text-[#545454]">Estimated Tax</p>
+                                <p>₦4999</p>
                             </div>
                             <div className="flex justify-between my-4">
                                 <p className="text-[#545454]">Estimated shipping & Handling</p>
-                                <p>#10000</p>
+                                <p>₦10,000</p>
                             </div>
                             <div className="flex justify-between my-4 border-y py-2 border-[#E5E5E5]">
                                 <p>Total</p>
-                                <p>#1,652,000</p>
+                                <p>₦{calculateTotal() + 4999 + 10000}</p>
                             </div>
                         </div>
                     </div>
@@ -111,7 +114,7 @@ const Step3 = () => {
                         <div className="my-6 md:my-0">
                             <h3 className="mb-2 text-2xl">Payment</h3>
                             <div className="flex justify-between">
-                                <p className="underline">Credit Cart</p>
+                                <p className="underline">Credit Card</p>
                                 <p>PayPal</p>
                                 <p>PayPal Credit</p>
                             </div>
@@ -124,42 +127,34 @@ const Step3 = () => {
                         <div className="">
                             <form className="space-y-4">
                                 <input type="text" value={cardHolder}
-
-                                    name="text" placeholder="Cardholder Name" onChange={(e) => setCardHolder(e.target.value)}
+                                    name="text" placeholder="Cardholder Name"
+                                    onChange={(e) => setCardHolder(e.target.value)}
                                     className={`border border-[#CECECE] rounded-md py-3 pl-4 w-full outline-none ${errors.cardHolder ? 'border-red-500' : ''}`} />
                                 {errors.cardHolder && <p className="text-red-500 text-sm">{errors.cardHolder}</p>}
                                 <input type="text" name="text" placeholder="Card Number" value={cardNumber}
                                     onChange={(e) => setCardNumber(e.target.value)}
-                                    className={`border border-[#CECECE] rounded-md py-3 pl-4 w-full outline-none ${errors.cardNumber ? 'border-red-500' : ''}`}
-                                />
+                                    className={`border border-[#CECECE] rounded-md py-3 pl-4 w-full outline-none ${errors.cardNumber ? 'border-red-500' : ''}`} />
                                 {errors.cardNumber && <p className="text-red-500 text-sm">{errors.cardNumber}</p>}
                                 <div className="flex gap-3">
                                     <div>
-
                                         <input type="text" name="text" placeholder="Exp Date" value={expDate}
                                             onChange={(e) => setExpDate(e.target.value)}
-                                            className={`border border-[#CECECE] rounded-md py-3 pl-4 w-full outline-none ${errors.expDate ? 'border-red-500' : ''}`}
-                                        />
+                                            className={`border border-[#CECECE] rounded-md py-3 pl-4 w-full outline-none ${errors.expDate ? 'border-red-500' : ''}`} />
                                         {errors.expDate && <p className="text-red-500 text-sm">{errors.expDate}</p>}
                                     </div>
                                     <div>
-
                                         <input type="text" name="text" placeholder="CVV" value={cvv}
                                             onChange={(e) => setCvv(e.target.value)}
-                                            className={`border border-[#CECECE] rounded-md py-3 pl-4 w-full outline-none ${errors.cvv ? 'border-red-500' : ''}`}
-                                        />
+                                            className={`border border-[#CECECE] rounded-md py-3 pl-4 w-full outline-none ${errors.cvv ? 'border-red-500' : ''}`} />
                                         {errors.cvv && <p className="text-red-500 text-sm">{errors.cvv}</p>}
                                     </div>
                                 </div>
                                 <div className="flex">
-
                                     <input type="checkbox" name="address" />
-                                    <label htmlFor="filter-brand" className="ml-3 min-w-0 flex-1 flex items-center font-semibold gap-1">Same as billing address
-                                    </label>
+                                    <label htmlFor="filter-brand" className="ml-3 min-w-0 flex-1 flex items-center font-semibold gap-1">Same as billing address</label>
                                 </div>
                             </form>
                         </div>
-
                     </div>
                 </div>
                 <div className="flex md:justify-end justify-center gap-8 mt-8">
@@ -170,7 +165,7 @@ const Step3 = () => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Step3
+export default Step3;

@@ -1,46 +1,28 @@
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
-import Headphone from "../assets/img/product_havit_wireless_headphone.jpg";
+import { useCart } from '../components/CartContext';
 import CartItem from "../components/CartItem";
 
 const Cart = () => {
-    const initialCartItems = [
-        { id: 1, imgSrc: Headphone, name: "Havit Wireless Headphone", price: 22500, total: 22500 }
-    ];
-
-    const [cartItems, setCartItems] = useState(initialCartItems);
+    const { cartItems, removeFromCart, updateQuantity } = useCart();
     const [subtotal, setSubtotal] = useState(0);
 
     useEffect(() => {
-        const calculateSubtotal = () => {
-            const total = cartItems.reduce((acc, item) => acc + item.total, 0);
-            setSubtotal(total);
-        };
-
-        calculateSubtotal();
+        const total = cartItems.reduce((acc, item) => acc + item.total, 0);
+        setSubtotal(total);
     }, [cartItems]);
-
-    const handleRemoveItem = (itemId: number) => {
-        setCartItems(prevItems => prevItems.filter(item => item.id !== itemId));
-        alert('Item has been removed');
-    };
-
-    const handleQuantityChange = (id: number, _quantity: number, total: number) => {
-        setCartItems(prevItems => prevItems.map(item => item.id === id ? { ...item, total } : item));
-    };
 
     return (
         <div className="px-4 py-6 md:px-24">
             <div className="md:text-center flex flex-col md:flex-col-reverse gap-y-6 md:mt-20 ">
                 <Link to='/'>
-                    <a className="text-[#001845] border-b-2 border-[#001845] ml-3">
+                    <span className="text-[#001845] border-b-2 border-[#001845] ml-3">
                         Back to shopping
-                    </a>
+                    </span>
                 </Link>
                 <h3 className="text-2xl lg:flex justify-center">Your cart items</h3>
             </div>
 
-            {/* Mobile cart view */}
             <div className="my-6 md:hidden">
                 <span className="flex justify-between items-center my-4 lg:hidden">
                     <p>Product</p>
@@ -53,26 +35,23 @@ const Cart = () => {
                         imgSrc={item.imgSrc}
                         name={item.name}
                         price={item.price}
-                        onRemove={handleRemoveItem}
-                        onQuantityChange={handleQuantityChange}
+                        onRemove={removeFromCart}
+                        onQuantityChange={updateQuantity}
                     />
                 ))}
-                {/* checkout form */}
                 <div className="text-center my-8">
                     <h2 className="text-xl">Sub-total ₦{subtotal}</h2>
                     <p className="text-[#9E9E9E]">Tax and shipping cost will be calculated later</p>
                 </div>
                 <div className="px-3 py-10 border border-[#EBEBEB] rounded-xl">
                     <form>
-                        <div className="">
+                        <div>
                             <label htmlFor="code" className='text-[#545454]'>Discount code / Promo code</label>
-                            <div className='rounded-[8px] flex items-center py-2'>
-                                <input
-                                    type="code"
-                                    name="code"
-                                    id="code"
-                                    placeholder='code' className='text-[#556177] w-full rounded-md border border-[#9F9F9F] outline-none py-2 pl-2' />
-                            </div>
+                            <input
+                                type="code"
+                                name="code"
+                                id="code"
+                                placeholder='code' className='text-[#556177] w-full rounded-md border border-[#9F9F9F] outline-none py-2 pl-2' />
                         </div>
                         <Link to='/step1'>
                             <button className="bg-blue-primary-60 text-white py-2.5 text-center w-full rounded-xl mt-6">Checkout</button>
@@ -81,7 +60,6 @@ const Cart = () => {
                 </div>
             </div>
 
-            {/* Desktop cart view */}
             <div className="hidden md:block my-12">
                 <div className="grid grid-cols-2">
                     <p>Product</p>
@@ -98,11 +76,10 @@ const Cart = () => {
                         imgSrc={item.imgSrc}
                         name={item.name}
                         price={item.price}
-                        onRemove={handleRemoveItem}
-                        onQuantityChange={handleQuantityChange}
+                        onRemove={removeFromCart}
+                        onQuantityChange={updateQuantity}
                     />
                 ))}
-                {/* Checkout form */}
                 <div className="flex justify-between items-center my-12">
                     <form className="w-1/3">
                         <label htmlFor="code" className='text-[#545454] lg:text-xl'>Discount code / Promo code</label>

@@ -23,7 +23,7 @@ function App() {
           <Route path="step2" element={<Step2 />} />
           <Route path="step3" element={<Step3 />} />
           <Route path="checkout" element={<Checkout />} />
-          <Route path="productdetail" element={<ProductDetail />} />
+          <Route path="/productdetail/:id" element={<ProductDetail />} />
         </Route>
       </Routes>
     </Router>
