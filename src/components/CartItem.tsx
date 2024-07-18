@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { MdAdd } from "react-icons/md";
 import { LuMinus } from "react-icons/lu";
 
+
+// Remove Item Modal
 const Modal = ({ isVisible, onConfirm, onCancel }: { isVisible: boolean, onConfirm: () => void, onCancel: () => void }) => {    if (!isVisible) return null;
 
     return (
@@ -20,11 +22,14 @@ const Modal = ({ isVisible, onConfirm, onCancel }: { isVisible: boolean, onConfi
     );
 };
 
+
+// Cart Item
 const CartItem = ({ id, imgSrc, name, price, onRemove, onQuantityChange }: { id: string, imgSrc: string, name: string, price: number, onRemove: (id: string) => void, onQuantityChange: (id: string, quantity: number, total: number) => void }) => {
     const [quantity, setQuantity] = useState(1);
     const [total, setTotal] = useState(price);
     const [isModalVisible, setIsModalVisible] = useState(false);
 
+    // Quantity Increment
     const handleIncrement = () => {
         setQuantity(prevQuantity => {
             const newQuantity = prevQuantity + 1;
@@ -35,6 +40,7 @@ const CartItem = ({ id, imgSrc, name, price, onRemove, onQuantityChange }: { id:
         });
     };
 
+    // Quantity Decrement
     const handleDecrement = () => {
         if (quantity > 1) {
             setQuantity(prevQuantity => {
@@ -49,6 +55,7 @@ const CartItem = ({ id, imgSrc, name, price, onRemove, onQuantityChange }: { id:
         }
     };
 
+    // Remove item function
     const handleRemove = () => {
         setIsModalVisible(true);
     };
@@ -74,17 +81,17 @@ const CartItem = ({ id, imgSrc, name, price, onRemove, onQuantityChange }: { id:
                     </div>
                     <span className="flex-grow">
                         <h3 className="text-lg text-wrap">{name}</h3>
-                        <button className="text-[#001845] border-b-2 border-[#001845]" onClick={handleRemove}>Remove</button>
+                        <button className="text-[#001845] border-b-2 border-[#001845] text-sm" onClick={handleRemove}>Remove</button>
                     </span>
                 </div>
                 <span className="">
                     <span>
                         <p>₦{total}</p>
                     </span>
-                    <div className="text-[#001845] flex gap-1 items-center border border-blue-primary-60 p-1">
-                        <button className="text-lg" onClick={handleIncrement}><MdAdd /></button>
+                    <div className="text-[#001845] flex gap-1 items-center border border-blue-primary-60 p-[2px]">
+                        <button className="text-sm" onClick={handleIncrement}><MdAdd /></button>
                         <p>{quantity}</p>
-                        <button className="text-lg" onClick={handleDecrement}><LuMinus /></button>
+                        <button className="text-sm" onClick={handleDecrement}><LuMinus /></button>
                     </div>
                 </span>
             </div>
@@ -97,17 +104,17 @@ const CartItem = ({ id, imgSrc, name, price, onRemove, onQuantityChange }: { id:
                     </div>
                     <span>
                         <h3 className="text-xl text-wrap">{name}</h3>
-                        <button className="text-[#001845] border-b-2 border-[#001845]" onClick={handleRemove}>Remove</button>
+                        <button className="text-[#001845] border-b-2 border-[#001845] text-sm" onClick={handleRemove}>Remove</button>
                     </span>
                 </div>
                 <div className="flex justify-between items-center">
                     <span>
                         <p>₦{price}</p>
                     </span>
-                    <div className="text-[#001845] flex gap-1 items-center border border-blue-primary-60 p-2">
-                        <button className="text-xl" onClick={handleIncrement}><MdAdd /></button>
-                        <p>{quantity}</p>
-                        <button className="text-xl" onClick={handleDecrement}><LuMinus /></button>
+                    <div className="text-[#001845] flex gap-1 items-center border border-blue-primary-60 p-1">
+                        <button className="text-sm" onClick={handleIncrement}><MdAdd /></button>
+                        <p className='text-sm'>{quantity}</p>
+                        <button className="text-sm" onClick={handleDecrement}><LuMinus /></button>
                     </div>
                     <span>₦{total}</span>
                 </div>
