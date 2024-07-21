@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { useCart } from '../components/CartContext';
+import { useCart } from '../Context/CartContext';
+import { fetchSingleProduct } from '../Api/Api'
 
 interface ProductDetail {
     id: string;
@@ -19,10 +20,6 @@ const ProductDetail: React.FC = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
-    const ORGANISATION_ID = 'f03d061f380f467eaf3cd09b90ef8b20';
-    const API_ID = 'ES42I1L9BSDSVH2';
-    const API_KEY = 'a81ec612e74d4189a464e2f3e35ab17d20240713160038463229';
-
     const { addToCart } = useCart();
 
     const handleAddToCart = () => {
@@ -39,15 +36,9 @@ const ProductDetail: React.FC = () => {
     };
 
     useEffect(() => {
-        const fetchProductDetail = async () => {
+        const loadProductDetail = async () => {
             try {
-                const response = await fetch(
-                    `https://timbu-get-single-product.reavdev.workers.dev/${id}?organization_id=${ORGANISATION_ID}&Appid=${API_ID}&Apikey=${API_KEY}`
-                );
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                const data = await response.json();
+                const data = await fetchSingleProduct(id as string);
                 setProduct(data);
             } catch (err) {
                 if (err instanceof Error) {
@@ -60,7 +51,7 @@ const ProductDetail: React.FC = () => {
             }
         };
 
-        fetchProductDetail();
+        loadProductDetail();
     }, [id]);
 
     if (loading) {
@@ -98,7 +89,6 @@ const ProductDetail: React.FC = () => {
                                 } text-xs font-medium me-2 px-2.5 py-0.5 rounded`}>
                                 {product.is_available ? "Available" : "Not Available"}
                             </span>
-
                         </span>
                         <p className="text-sm text-gray-600">Available Quantity: {product.available_quantity}</p>
                     </div>

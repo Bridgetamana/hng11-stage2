@@ -1,11 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { LuChevronLeft, LuChevronRight } from "react-icons/lu";
+import { fetchProducts } from "../Api/Api";
 
 interface Product {
     id: string;
     name: string;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     current_price: any;
     photos: { url: string }[];
 }
@@ -16,23 +17,11 @@ const ProductCard: React.FC = () => {
     const [error, setError] = useState<string | null>(null);
     const [page, setPage] = useState(1);
 
-    const ORGANISATION_ID = 'f03d061f380f467eaf3cd09b90ef8b20';
-    const API_ID = 'ES42I1L9BSDSVH2';
-    const API_KEY = 'a81ec612e74d4189a464e2f3e35ab17d20240713160038463229';
-
     useEffect(() => {
-        const fetchProducts = async () => {
+        const loadProducts = async () => {
             try {
-                const response = await fetch(
-                    `https://timbu-get-all-products.reavdev.workers.dev/?organization_id=${ORGANISATION_ID}&reverse_sort=false&page=${page}&size=10&Appid=${API_ID}&Apikey=${API_KEY}`
-                );
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                const data = await response.json();
-                console.log('Fetched products:', data);
+                const data = await fetchProducts(page);
                 setProducts(data.items);
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
             } catch (error: any) {
                 setError(error.message);
             } finally {
@@ -40,7 +29,7 @@ const ProductCard: React.FC = () => {
             }
         };
 
-        fetchProducts();
+        loadProducts();
     }, [page]);
 
     if (loading) {
@@ -65,12 +54,9 @@ const ProductCard: React.FC = () => {
         <div>
             <div className='grid grid-cols-2 gap-y-6 gap-x-4 md:grid-cols-3 max-w-md mx-auto md:max-w-3xl lg:max-w-7xl'>
                 {products.map((product) => (
-                    <Link to='/productdetail' className='bg-[#F6F6F6] rounded-md pb-4 pt-7 px-2 md:py-4 flex flex-col cursor-pointer h-full max-w-[240px] transition duration-500 hover:scale-105' key={product.id}>
+                    <Link to={`/productdetail/${product.id}`} key={product.id} className='bg-[#F6F6F6] rounded-md pb-4 pt-7 px-2 md:py-4 flex flex-col cursor-pointer h-full max-w-[240px] transition duration-500 hover:scale-105'>
                         <div className='w-28 h-28 mx-auto flex-shrink-0'>
                             <img src={`https://api.timbu.cloud/images/${product?.photos[0]?.url}`} alt={product.name} className='w-full h-full' />
-                        </div>
-                        <div>
-
                         </div>
                         <div className='text-center mt-4'>
                             <p className="h-16 flex-grow">{product.name}</p>
@@ -120,4 +106,5 @@ const ProductCard: React.FC = () => {
         </div>
     );
 };
+
 export default ProductCard;

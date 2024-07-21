@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { LuMapPin, LuTruck, LuCreditCard } from "react-icons/lu";
 import { Link, useNavigate } from "react-router-dom";
-import { useCart } from "../components/CartContext";
+import { useCart } from "../Context/CartContext";
 import Creditcard from '../assets/img/CreditCard.png';
 import CheckoutSteps from "../components/CheckoutSteps";
 
@@ -67,19 +67,23 @@ const Step3 = () => {
                             <h2 className="text-xl mb-6">Summary</h2>
 
                             <div className="space-y-4">
-                                {cartItems.map(item => (
-                                    <div key={item.id} className="flex items-center justify-between bg-[#F6F6F6] rounded-xl py-3 px-5">
-                                        <div className="flex justify-between items-center gap-4 lg:gap-8">
-                                            <div className="w-16 flex-shrink-0">
-                                                <img src={item.imgSrc} className="w-full" alt={item.name} />
+                                {cartItems.map(item => {
+                                    const imageUrl = `https://api.timbu.cloud/images/${item.imgSrc}`;
+
+                                    return (
+                                        <div key={item.id} className="flex items-center justify-between bg-[#F6F6F6] rounded-xl py-3 px-5">
+                                            <div className="flex justify-between items-center gap-4 lg:gap-8">
+                                                <div className="w-16 flex-shrink-0">
+                                                    <img src={imageUrl} className="w-full" alt={item.name} />
+                                                </div>
+                                                <span className="flex-grow">
+                                                    <h3 className="text-lg text-wrap">{item.name}</h3>
+                                                </span>
                                             </div>
-                                            <span className="flex-grow">
-                                                <h3 className="text-lg text-wrap">{item.name}</h3>
-                                            </span>
+                                            <p>₦{item.price}</p>
                                         </div>
-                                        <p>₦{item.price}</p>
-                                    </div>
-                                ))}
+                                    );
+                                })}
                             </div>
                         </div>
 
