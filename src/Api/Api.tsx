@@ -1,9 +1,9 @@
 import axios from 'axios';
 
 const baseUrl = 'https://api.timbu.cloud';
-const organizationId = 'f03d061f380f467eaf3cd09b90ef8b20';
-const appid = 'ES42I1L9BSDSVH2';
-const apikey = 'a81ec612e74d4189a464e2f3e35ab17d20240713160038463229';
+const organizationId = import.meta.env.VITE_ORGANIZATION_ID;
+const appid = import.meta.env.VITE_API_ID;
+const apikey = import.meta.env.VITE_API_KEY;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const fetchProducts = async (page: number): Promise<any> => {
